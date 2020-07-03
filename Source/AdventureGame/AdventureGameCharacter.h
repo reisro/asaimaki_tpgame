@@ -11,6 +11,14 @@ class AAdventureGameCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
+	/** Right Foot Socket to simulate collision against right foot character animations */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
+	class UBoxComponent * RightFootSocket;
+
+	/** Left Foot Socket to simulate collision against left foot character animations */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
+	class UBoxComponent * LeftFootSocket;
+
 	/** Camera boom positioning the camera behind the character */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* CameraBoom;
