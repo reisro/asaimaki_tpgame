@@ -4,16 +4,15 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "AsaiMakiFootCollision.h"
 #include "AdventureGameCharacter.generated.h"
+
+class AsaiMakiFootCollision;
 
 UCLASS(config=Game)
 class AAdventureGameCharacter : public ACharacter
 {
 	GENERATED_BODY()
-
-	/** Right Foot Socket to simulate collision against right foot character animations */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
-	class UBoxComponent * RightFootSocket;
 
 	/** Left Foot Socket to simulate collision against left foot character animations */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
@@ -36,6 +35,12 @@ public:
 	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
+
+	// a fast data access to the collision class
+	TWeakObjectPtr<AsaiMakiFootCollision> rightFootCollision;
+
+	// a fast data access to the collision class
+	TWeakObjectPtr<AsaiMakiFootCollision> leftFootCollision;
 
 protected:
 
