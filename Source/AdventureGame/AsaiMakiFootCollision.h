@@ -4,11 +4,12 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Components/SceneComponent.h"
 #include "Components/BoxComponent.h"
 #include "AsaiMakiFootCollision.generated.h"
 
 UCLASS()
-class ADVENTUREGAME_API AAsaiMakiFootCollision : public AActor
+class ADVENTUREGAME_API UAsaiMakiFootCollision : public USceneComponent
 {
 	GENERATED_BODY()
 
@@ -18,19 +19,13 @@ class ADVENTUREGAME_API AAsaiMakiFootCollision : public AActor
 	
 public:	
 	// Sets default values for this actor's properties
-	AAsaiMakiFootCollision();
+	UAsaiMakiFootCollision();
 
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
-	// declare overlap begin function
-	UFUNCTION()
-		void CreateFootCollision(const char * collisionName);
 
 	// declare overlap begin function
 	UFUNCTION()

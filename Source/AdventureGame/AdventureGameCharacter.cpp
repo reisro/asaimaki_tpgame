@@ -6,6 +6,7 @@
 #include "Components/CapsuleComponent.h"
 #include "Components/InputComponent.h"
 #include "Components/BoxComponent.h"
+#include "FootCollisionComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
@@ -20,33 +21,51 @@ AAdventureGameCharacter::AAdventureGameCharacter()
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 
 	// Set collision sockets
-	LeftFootSocket = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftFootSocket"));
-	
-	// Attach sockets as children of Mesh Component
-	//LeftFootSocket->SetupAttachment(GetMesh());
+	LeftFootSocket = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftFootColl"));
+	RightFootSocket = CreateDefaultSubobject<UBoxComponent>(TEXT("RightFootColl"));
 
 	// Create rules for attaching sockets on components
 	FAttachmentTransformRules transformRules = FAttachmentTransformRules(EAttachmentRule::KeepWorld, EAttachmentRule::KeepWorld, EAttachmentRule::KeepWorld, true);
-	//RightFootSocket->AttachToComponent(RootComponent, transformRules, FName(TEXT("RightFoot")));
-	LeftFootSocket->AttachToComponent(RootComponent, transformRules, FName(TEXT("LeftFoot")));
+
+	LeftFootSocket->AttachToComponent(GetMesh(), transformRules, FName(TEXT("LeftFoot")));
+	RightFootSocket->AttachToComponent(GetMesh(), transformRules, FName(TEXT("RightFoot")));
 
 	// Create a transform that holds location, rotation and scale of collision components
 	FTransform fTransform;
+	FTransform RFTransform;
 
 	// Set Location
-	fTransform.SetLocation(FVector(-25.07f, 20.87f, -94.78f));
+	fTransform.SetLocation(FVector(0.067608f, 6.154139f, 6.77425f));
+	RFTransform.SetLocation(FVector(-25.076216f, 6.154139f, 6.77425f));
 	
 	// Set Rotator with float values
-	FRotator RightCollisionRotator = FRotator(183.39f, -3.389973f, 218.382874f);
+	FRotator LeftCollisionRotator = FRotator(-89.148125f, 89.399956f, 0.024115f);
+	FRotator RightCollisionRotator = FRotator(-89.148125f, 89.399956f, 0.024115f);
 
 	// Create a Quaternion from a Rotator
+	FQuat QuatLeftCollision = FQuat(LeftCollisionRotator);
 	FQuat QuatRightCollision = FQuat(RightCollisionRotator);
 
 	// Set Rotation
-	fTransform.SetRotation(QuatRightCollision);
+	fTransform.SetRotation(QuatLeftCollision);
+	RFTransform.SetRotation(QuatRightCollision);
 
 	// Set Scale
 	fTransform.SetScale3D(FVector(0.4385f, 0.1727f, 0.1464f));
+	RFTransform.SetScale3D(FVector(0.4385f, 0.1727f, 0.1464f)); 
+
+	LeftFootSocket->SetRelativeTransform(fTransform);
+	LeftFootSocket->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	LeftFootSocket->GetGenerateOverlapEvents();
+	LeftFootSocket->SetCollisionProfileName(TEXT("BlockAll"));
+
+	RightFootSocket->SetRelativeTransform(fTransform);
+	RightFootSocket->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	RightFootSocket->GetGenerateOverlapEvents();
+	RightFootSocket->SetCollisionProfileName(TEXT("BlockAll"));
+
+	// add a dynamic delegate when this collision is overlapped
+	LeftFootSocket->OnComponentBeginOverlap.AddDynamic(this, &AAdventureGameCharacter::OnComponentBeginOverlap);
 
 	// set our turn rates for input
 	BaseTurnRate = 45.f;
@@ -107,9 +126,10 @@ void AAdventureGameCharacter::SetupPlayerInputComponent(class UInputComponent* P
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &AAdventureGameCharacter::OnResetVR);
 }
 
-
-void AAdventureGameCharacter::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
+void AAdventureGameCharacter::OnComponentBeginOverlap(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
 {
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Overlap Begin"));
+	//UE_LOG(LogTemp, Warning, TEXT("Collision C++ component"));
 }
 
 void AAdventureGameCharacter::OnResetVR()

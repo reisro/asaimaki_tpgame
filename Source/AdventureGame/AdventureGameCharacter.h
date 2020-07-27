@@ -15,8 +15,12 @@ class AAdventureGameCharacter : public ACharacter
 	GENERATED_BODY()
 
 	/** Left Foot Socket to simulate collision against left foot character animations */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
-	class UBoxComponent * LeftFootSocket;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
+	class UBoxComponent* LeftFootSocket;
+
+	/** Left Foot Socket to simulate collision against left foot character animations */
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
+	class UBoxComponent* RightFootSocket;
 
 	/** Camera boom positioning the camera behind the character */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
@@ -36,11 +40,17 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
 
+	class FootCollisionComponent* RFootCollision;
+
+	class FootCollisionComponent* LFootCollision;
+
 	// a fast data access to the collision class
 	TWeakObjectPtr<AsaiMakiFootCollision> rightFootCollision;
 
 	// a fast data access to the collision class
 	TWeakObjectPtr<AsaiMakiFootCollision> leftFootCollision;
+
+	void OnComponentBeginOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
 protected:
 
@@ -82,4 +92,3 @@ public:
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 };
-
