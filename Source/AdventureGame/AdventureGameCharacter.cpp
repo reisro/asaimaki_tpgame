@@ -22,7 +22,7 @@ AAdventureGameCharacter::AAdventureGameCharacter()
 
 	// Set collision sockets
 	LeftFootSocket = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftFootColl"));
-	RightFootSocket = CreateDefaultSubobject<UBoxComponent>(TEXT("RightFootColl"));
+	RightFootSocket = CreateDefaultSubobject<UBoxComponent>(TEXT("RightFootCol"));
 
 	// Create rules for attaching sockets on components
 	FAttachmentTransformRules transformRules = FAttachmentTransformRules(EAttachmentRule::KeepWorld, EAttachmentRule::KeepWorld, EAttachmentRule::KeepWorld, true);
@@ -56,16 +56,17 @@ AAdventureGameCharacter::AAdventureGameCharacter()
 
 	LeftFootSocket->SetRelativeTransform(fTransform);
 	LeftFootSocket->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-	LeftFootSocket->GetGenerateOverlapEvents();
+	LeftFootSocket->SetGenerateOverlapEvents(true);
 	LeftFootSocket->SetCollisionProfileName(TEXT("BlockAll"));
 
 	RightFootSocket->SetRelativeTransform(fTransform);
 	RightFootSocket->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-	RightFootSocket->GetGenerateOverlapEvents();
+	RightFootSocket->SetGenerateOverlapEvents(true);
 	RightFootSocket->SetCollisionProfileName(TEXT("BlockAll"));
 
 	// add a dynamic delegate when this collision is overlapped
-	LeftFootSocket->OnComponentBeginOverlap.AddDynamic(this, &AAdventureGameCharacter::OnComponentBeginOverlap);
+	LeftFootSocket->OnComponentBeginOverlap.AddDynamic(this, &AAdventureGameCharacter::BeginOverlap);
+	RightFootSocket->OnComponentBeginOverlap.AddDynamic(this, &AAdventureGameCharacter::BeginOverlap);
 
 	// set our turn rates for input
 	BaseTurnRate = 45.f;
@@ -126,10 +127,9 @@ void AAdventureGameCharacter::SetupPlayerInputComponent(class UInputComponent* P
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &AAdventureGameCharacter::OnResetVR);
 }
 
-void AAdventureGameCharacter::OnComponentBeginOverlap(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
+void AAdventureGameCharacter::BeginOverlap(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
 {
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, TEXT("Overlap Begin"));
-	//UE_LOG(LogTemp, Warning, TEXT("Collision C++ component"));
+	UE_LOG(LogTemp, Warning, TEXT("Collision C++ component"));
 }
 
 void AAdventureGameCharacter::OnResetVR()
