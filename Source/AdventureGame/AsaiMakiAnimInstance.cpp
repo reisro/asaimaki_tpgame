@@ -3,3 +3,6 @@
 
 #include "AsaiMakiAnimInstance.h"
 
+void UAsaiMakiAnimInstance::NativeInitializeAnimation()
+{
+}
