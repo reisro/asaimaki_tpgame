@@ -2,7 +2,38 @@
 
 
 #include "AsaiMakiAnimInstance.h"
+#include "AdventureGameCharacter.h"
+#include "GameFramework/Pawn.h"
+#include "GameFramework/CharacterMovementComponent.h"
+
+UAsaiMakiAnimInstance::UAsaiMakiAnimInstance()
+{
+}
 
 void UAsaiMakiAnimInstance::NativeInitializeAnimation()
 {
+	Super::NativeInitializeAnimation();
+
+	if (Pawn == nullptr)
+	{
+		Pawn = TryGetPawnOwner();
+
+		if (Pawn)
+			Character = Cast<AAdventureGameCharacter>(Pawn);
+	}
+}
+
+void UAsaiMakiAnimInstance::UpdateAnimationProperties(float DeltaTime)
+{
+	if (Pawn == nullptr)
+		Pawn = TryGetPawnOwner();
+
+	if (Pawn)
+	{
+		FVector PawnVelocity = Pawn->GetVelocity();
+		FVector RightSpeed = FVector(PawnVelocity.X, PawnVelocity.Y, 0.f);
+		this->Speed = RightSpeed.Size();
+
+		this->InAir = Pawn->GetMovementComponent()->IsFalling();
+	}
 }

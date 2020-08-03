@@ -23,24 +23,29 @@ public:
 	float GetSpeed() const { return Speed; }
 
 	UFUNCTION(BlueprintCallable)
-	bool IsInAir() const { return isInAir; }
+	bool IsInAir() const { return InAir; }
 
 	UFUNCTION(BlueprintCallable)
-	bool CanKick() const { return canKick; }
+	bool CanKick() const { return EnableKick; }
 
-	UFUNCTION(BlueprintCallable)
-	bool IsHit() const { return isHit; }
+	UFUNCTION(BlueprintCallable, Category = AnimationProperties)
+	void UpdateAnimationProperties(float DeltaTime);
 
-private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Animation)
 	float Speed;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Animation)
-	bool isInAir;
+	bool InAir;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Animation)
-	bool canKick;
+	bool EnableKick;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Animation)
-	bool isHit;
+	bool Hit;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Movement)
+	class APawn* Pawn;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Movement)
+	class AAdventureGameCharacter* Character;
 };
