@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "AsaiMakiFootCollision.h"
+#include "AsaiMakiAnimInstance.h"
 #include "AdventureGameCharacter.generated.h"
 
 class AsaiMakiFootCollision;
@@ -29,7 +30,8 @@ class AAdventureGameCharacter : public ACharacter
 	/** Follow camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
-public:
+
+	public:
 	AAdventureGameCharacter();
 
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
@@ -39,6 +41,10 @@ public:
 	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
+
+	/** Anim Instance */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
+	class UAsaiMakiAnimInstance* asaiMakiAnimInstance;
 
 	class FootCollisionComponent* RFootCollision;
 

@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Animation/AnimInstance.h"
+#include "Animation/AnimMontage.h"
 #include "AsaiMakiAnimInstance.generated.h"
 
 /**
@@ -31,6 +32,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = AnimationProperties)
 	void UpdateAnimationProperties(float DeltaTime);
 
+	UFUNCTION(BlueprintCallable, Category = AnimationProperties)
+	void PlayKickAttack();
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Animation)
 	float Speed;
 
@@ -48,4 +52,7 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Movement)
 	class AAdventureGameCharacter* Character;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Combat)
+	class UAnimMontage* KickAttackAnimMontage;
 };

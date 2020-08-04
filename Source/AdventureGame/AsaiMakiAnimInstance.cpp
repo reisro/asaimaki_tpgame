@@ -37,3 +37,7 @@ void UAsaiMakiAnimInstance::UpdateAnimationProperties(float DeltaTime)
 		this->InAir = Pawn->GetMovementComponent()->IsFalling();
 	}
 }
+
+void UAsaiMakiAnimInstance::PlayKickAttack()
+{
+}
