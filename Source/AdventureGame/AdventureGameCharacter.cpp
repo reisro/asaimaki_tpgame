@@ -132,10 +132,6 @@ void AAdventureGameCharacter::BeginOverlap(UPrimitiveComponent * OverlappedComp,
 	if ((OtherActor != nullptr) && (OtherActor != this))
 	{
 		UE_LOG(LogTemp, Warning, TEXT("%s"), *OtherActor->GetName());
-
-		FAnimNotifyEvent * notifyEvent = new FAnimNotifyEvent();
-
-		asaiMakiAnimInstance->TriggerSingleAnimNotify(notifyEvent);
 	}
 }
 
