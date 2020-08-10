@@ -11,4 +11,4 @@
 #include "CoreMinimal.h"
 #include "EngineMinimal.h"
 #include "Engine/Engine.h"
-#include "AsaiMakiCommonTypes.h"
+#include "Public/AsaiMakiCommonTypes.h"
