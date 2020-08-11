@@ -4,33 +4,37 @@
 
 #include "AsaiMakiCommonTypes.generated.h"
 
-enum class GameState
+UENUM(BlueprintType) 
+enum GameState
 {
-	MainMenu,
-	Playing,
-	End,
-	Credits
+	MainMenu UMETA(DisplayName="Main Menu"),
+	Playing UMETA(DisplayName="Playing"),
+	End UMETA(DisplayName="End"),
+	Credits UMETA(DisplayName="Credits")
 };
 
-enum class CharacterState
+UENUM(BlueprintType) 
+enum CharacterState
 {
-	Alive,
-	Dead
+	Alive UMETA(DisplayName="Alive"),
+	Dead UMETA(DisplayName="Dead")
 };
 
-enum class CharacterAnimationState
+UENUM(BlueprintType) 
+enum CharacterAnimationState
 {
-	Idle,
-	Walk,
-	Running,
-	Combat,
-	Die
+	Idle UMETA(DisplayName="Idle"),
+	Walk UMETA(DisplayName="Walk"),
+	Running UMETA(DisplayName="Running"),
+	Combat UMETA(DisplayName="Combat"),
+	Die UMETA(DisplayName="Die")
 };
 
-enum class ItemType
+UENUM(BlueprintType)
+enum ItemType
 {
-	Health,
-	CombatXP
+	Health UMETA(DisplayName="Health"),
+	CombatXP UMETA(DisplayName="CombatXP")
 };
 
 USTRUCT(BlueprintType)
@@ -48,7 +52,7 @@ struct ADVENTUREGAME_API FAsaiMakiItem
 	
 	// Type of the item
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Items")
-	ItemType itemType;
+	TEnumAsByte<ItemType> itemType;
 };
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnGameStarts);
