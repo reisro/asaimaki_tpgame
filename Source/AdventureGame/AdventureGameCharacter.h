@@ -2,11 +2,10 @@
 
 #pragma once
 
-#include "CoreMinimal.h"
-#include "GameFramework/Character.h"
 #include "AsaiMaki_TPGame.h"
 #include "AsaiMakiFootCollision.h"
 #include "AsaiMakiAnimInstance.h"
+#include "GameFramework/Character.h"
 #include "AdventureGameCharacter.generated.h"
 
 class AsaiMakiFootCollision;
