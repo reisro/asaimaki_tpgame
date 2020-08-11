@@ -4,7 +4,7 @@
 
 #include "AsaiMakiCommonTypes.generated.h"
 
-enum GameState
+enum class GameState
 {
 	MainMenu,
 	Playing,
@@ -12,13 +12,13 @@ enum GameState
 	Credits
 };
 
-enum CharacterState
+enum class CharacterState
 {
 	Alive,
 	Dead
 };
 
-enum CharacterAnimationState
+enum class CharacterAnimationState
 {
 	Idle,
 	Walk,
@@ -27,7 +27,7 @@ enum CharacterAnimationState
 	Die
 };
 
-USTRUCT()
+USTRUCT(BlueprintType)
 struct ADVENTUREGAME_API FItem
 {
 	GENERATED_BODY()
