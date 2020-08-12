@@ -31,6 +31,10 @@ class AAdventureGameCharacter : public ACharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
 
+	/** Anim Instance */
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	class UAsaiMakiAnimInstance* AsaiMakiAnimInstance;
+
 	public:
 	AAdventureGameCharacter();
 
@@ -41,10 +45,6 @@ class AAdventureGameCharacter : public ACharacter
 	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
-
-	/** Anim Instance */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly)
-	class UAsaiMakiAnimInstance* asaiMakiAnimInstance;
 
 	class FootCollisionComponent* RFootCollision;
 
