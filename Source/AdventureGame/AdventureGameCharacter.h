@@ -32,7 +32,7 @@ class AAdventureGameCharacter : public ACharacter
 	class UCameraComponent* FollowCamera;
 
 	/** Anim Instance */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UAsaiMakiAnimInstance* AsaiMakiAnimInstance;
 
 	public:

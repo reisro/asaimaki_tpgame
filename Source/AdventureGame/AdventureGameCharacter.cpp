@@ -133,7 +133,13 @@ void AAdventureGameCharacter::BeginOverlap(UPrimitiveComponent * OverlappedComp,
 	{
 		UE_LOG(LogTemp, Warning, TEXT("%s"), *OtherActor->GetName());
 
+		// hold a reference for the hit character
 		AAdventureGameCharacter * character = Cast<AAdventureGameCharacter>(OtherActor);
+
+		// get anim instance from hit character
+		AsaiMakiAnimInstance = Cast<UAsaiMakiAnimInstance>(character->GetMesh()->GetAnimInstance());
+
+		// triggers hit animation on hit character
 		AsaiMakiAnimInstance->Hit = true;
 	}
 }
