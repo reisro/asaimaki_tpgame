@@ -139,6 +139,21 @@ void AAdventureGameCharacter::BeginOverlap(UPrimitiveComponent * OverlappedComp,
 		// get anim instance from hit character
 		AsaiMakiAnimInstance = Cast<UAsaiMakiAnimInstance>(character->GetMesh()->GetAnimInstance());
 
+		if (AsaiMakiAnimInstance == nullptr)
+			UE_LOG(LogTemp, Warning, TEXT("Some warning message"));
+
+		//FDetachmentTransformRules transformRules = FDetachmentTransformRules(EDetachmentRule::KeepWorld);
+
+		//character->GetMesh()->DetachFromComponent(transformRules);
+		//CameraBoom->DetachFromParent(true);
+
+		// avoid collision with capsule component, skeletal mesh
+		// and left and right socket collisions
+		character->GetCapsuleComponent()->SetCollisionProfileName(TEXT("NoCollision"));
+		character->GetMesh()->SetCollisionProfileName(TEXT("NoCollision"));
+		character->LeftFootSocket->SetCollisionProfileName(TEXT("NoCollision"));
+		character->RightFootSocket->SetCollisionProfileName(TEXT("NoCollision"));
+
 		// triggers hit animation on hit character
 		AsaiMakiAnimInstance->Hit = true;
 	}
