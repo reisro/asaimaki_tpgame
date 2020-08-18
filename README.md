@@ -1,6 +1,7 @@
 # Asai Maki Project
 
-Developed with Unreal Engine 4. It is a game application featuring third-person character mechanics gameplay as a demonstrated proof of skills using the engine.
+Developed with Unreal Engine 4. 
+It is a game application featuring third-person character mechanics gameplay as a demonstrated proof of skills using the engine.
 
 ## Installation
 
