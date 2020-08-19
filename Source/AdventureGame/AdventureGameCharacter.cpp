@@ -65,7 +65,6 @@ AAdventureGameCharacter::AAdventureGameCharacter()
 	RightFootSocket->SetCollisionProfileName(TEXT("BlockAll"));
 
 	// add a dynamic delegate when this collision is overlapped
-	LeftFootSocket->OnComponentBeginOverlap.AddDynamic(this, &AAdventureGameCharacter::BeginOverlap);
 	RightFootSocket->OnComponentBeginOverlap.AddDynamic(this, &AAdventureGameCharacter::BeginOverlap);
 
 	// set our turn rates for input
