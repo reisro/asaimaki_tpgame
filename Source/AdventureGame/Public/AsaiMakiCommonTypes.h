@@ -13,6 +13,13 @@ enum GameState
 	Credits UMETA(DisplayName="Credits")
 };
 
+UENUM(BlueprintType)
+enum GameTags
+{
+	Player UMETA(DisplayName="Player"),
+	Ninja UMETA(DisplayName = "Ninja")
+};
+
 UENUM(BlueprintType) 
 enum CharacterState
 {
