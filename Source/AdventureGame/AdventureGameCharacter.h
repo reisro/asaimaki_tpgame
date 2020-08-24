@@ -15,6 +15,9 @@ class AAdventureGameCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
+	UPROPERTY(VisibleAnywhere)
+	int Health;
+
 	/** Left Foot Socket to simulate collision against left foot character animations */
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
 	class UBoxComponent* LeftFootSocket;
@@ -36,6 +39,7 @@ class AAdventureGameCharacter : public ACharacter
 	class UAsaiMakiAnimInstance* AsaiMakiAnimInstance;
 
 	public:
+
 	AAdventureGameCharacter();
 
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
@@ -55,6 +59,9 @@ class AAdventureGameCharacter : public ACharacter
 
 	// a fast data access to the collision class
 	TWeakObjectPtr<AsaiMakiFootCollision> leftFootCollision;
+
+	UFUNCTION(BlueprintCallable)
+	int GetHealth() const;
 
 	UFUNCTION()
 	void BeginOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
