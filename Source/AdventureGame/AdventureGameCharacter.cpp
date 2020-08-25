@@ -128,7 +128,14 @@ void AAdventureGameCharacter::SetupPlayerInputComponent(class UInputComponent* P
 
 int AAdventureGameCharacter::GetHealth() const
 {
-	return Health;
+	UE_LOG(LogTemp, Warning, TEXT("%d"), GetHealth());
+
+	return NinjaAttributeSet->GetHealth();
+}
+
+void AAdventureGameCharacter::SetHealth(int32 _health)
+{
+	Health = _health;
 }
 
 void AAdventureGameCharacter::BeginOverlap(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
@@ -139,6 +146,8 @@ void AAdventureGameCharacter::BeginOverlap(UPrimitiveComponent * OverlappedComp,
 
 		// hold a reference for the hit character
 		AAdventureGameCharacter * character = Cast<AAdventureGameCharacter>(OtherActor);
+
+		character->SetHealth(0);
 
 		// get anim instance from hit character
 		AsaiMakiAnimInstance = Cast<UAsaiMakiAnimInstance>(character->GetMesh()->GetAnimInstance());

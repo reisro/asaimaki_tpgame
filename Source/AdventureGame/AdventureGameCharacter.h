@@ -5,6 +5,7 @@
 #include "AsaiMaki_TPGame.h"
 #include "AsaiMakiFootCollision.h"
 #include "AsaiMakiAnimInstance.h"
+#include "NinjaAttributeSet.h"
 #include "GameFramework/Character.h"
 #include "AdventureGameCharacter.generated.h"
 
@@ -15,8 +16,8 @@ class AAdventureGameCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
-	UPROPERTY(VisibleAnywhere)
-	int Health;
+	UPROPERTY(VisibleAnywhere, Category="Ninja")
+	int32 Health;
 
 	/** Left Foot Socket to simulate collision against left foot character animations */
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
@@ -37,6 +38,9 @@ class AAdventureGameCharacter : public ACharacter
 	/** Anim Instance */
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UAsaiMakiAnimInstance* AsaiMakiAnimInstance;
+
+	UPROPERTY(VisibleAnywhere)
+	UNinjaAttributeSet* NinjaAttributeSet;
 
 	public:
 
@@ -62,6 +66,9 @@ class AAdventureGameCharacter : public ACharacter
 
 	UFUNCTION(BlueprintCallable)
 	int GetHealth() const;
+
+	UFUNCTION(BlueprintCallable)
+	void SetHealth(int32 _health);
 
 	UFUNCTION()
 	void BeginOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
