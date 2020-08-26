@@ -16,9 +16,6 @@ class AAdventureGameCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
-	UPROPERTY(VisibleAnywhere, Category="Ninja")
-	int32 Health;
-
 	/** Left Foot Socket to simulate collision against left foot character animations */
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
 	class UBoxComponent* LeftFootSocket;
@@ -46,6 +43,9 @@ class AAdventureGameCharacter : public ACharacter
 
 	AAdventureGameCharacter();
 
+	UPROPERTY(VisibleAnywhere, Category = "Ninja")
+	int32 Health;
+
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseTurnRate;
@@ -65,7 +65,7 @@ class AAdventureGameCharacter : public ACharacter
 	TWeakObjectPtr<AsaiMakiFootCollision> leftFootCollision;
 
 	UFUNCTION(BlueprintCallable)
-	int GetHealth() const;
+	int32 GetHealth() const;
 
 	UFUNCTION(BlueprintCallable)
 	void SetHealth(int32 _health);

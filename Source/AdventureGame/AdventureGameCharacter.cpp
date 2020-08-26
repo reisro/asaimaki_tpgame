@@ -126,7 +126,7 @@ void AAdventureGameCharacter::SetupPlayerInputComponent(class UInputComponent* P
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &AAdventureGameCharacter::OnResetVR);
 }
 
-int AAdventureGameCharacter::GetHealth() const
+int32 AAdventureGameCharacter::GetHealth() const
 {
 	UE_LOG(LogTemp, Warning, TEXT("%d"), GetHealth());
 
@@ -179,12 +179,12 @@ void AAdventureGameCharacter::OnResetVR()
 
 void AAdventureGameCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
 {
-		Jump();
+	Jump();
 }
 
 void AAdventureGameCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FVector Location)
 {
-		StopJumping();
+	StopJumping();
 }
 
 void AAdventureGameCharacter::TurnAtRate(float Rate)
