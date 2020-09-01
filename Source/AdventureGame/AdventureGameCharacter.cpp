@@ -167,8 +167,9 @@ void AAdventureGameCharacter::BeginOverlap(UPrimitiveComponent * OverlappedComp,
 		character->LeftFootSocket->SetCollisionProfileName(TEXT("NoCollision"));
 		character->RightFootSocket->SetCollisionProfileName(TEXT("NoCollision"));
 
-		// triggers hit animation on hit character
-		AsaiMakiAnimInstance->Hit = true;
+		// triggers hit animation if player is kicking on hit character
+		if (AsaiMakiAnimInstance->Kicking)
+			AsaiMakiAnimInstance->Hit = true;
 	}
 }
 

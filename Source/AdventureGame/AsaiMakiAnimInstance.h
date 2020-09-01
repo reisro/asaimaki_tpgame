@@ -27,6 +27,9 @@ public:
 	bool IsInAir() const { return InAir; }
 
 	UFUNCTION(BlueprintCallable)
+	bool IsKicking() const { return Kicking; }
+
+	UFUNCTION(BlueprintCallable)
 	bool CanKick() const { return EnableKick; }
 
 	UFUNCTION(BlueprintCallable, Category = AnimationProperties)
@@ -43,6 +46,9 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Animation)
 	bool EnableKick;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Animation)
+	bool Kicking;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Animation)
 	bool Hit;
