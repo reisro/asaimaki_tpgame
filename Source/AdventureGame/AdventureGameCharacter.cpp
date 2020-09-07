@@ -128,9 +128,11 @@ void AAdventureGameCharacter::SetupPlayerInputComponent(class UInputComponent* P
 
 int32 AAdventureGameCharacter::GetHealth() const
 {
-	UE_LOG(LogTemp, Warning, TEXT("%d"), GetHealth());
+	UE_LOG(LogTemp, Warning, TEXT("Character Health %d"), this->Health);
 
-	return NinjaAttributeSet->GetHealth();
+	//return NinjaAttributeSet->GetHealth();
+
+	return this->Health;
 }
 
 void AAdventureGameCharacter::SetHealth(int32 _health)
@@ -152,6 +154,10 @@ void AAdventureGameCharacter::BeginOverlap(UPrimitiveComponent * OverlappedComp,
 		// get anim instance from hit character
 		AsaiMakiAnimInstance = Cast<UAsaiMakiAnimInstance>(character->GetMesh()->GetAnimInstance());
 
+		// get anim instance from this character
+		UAsaiMakiAnimInstance* PlayerAnimInstance;
+		PlayerAnimInstance = Cast<UAsaiMakiAnimInstance>(this->GetMesh()->GetAnimInstance());
+
 		if (AsaiMakiAnimInstance == nullptr)
 			UE_LOG(LogTemp, Warning, TEXT("Some warning message"));
 
@@ -167,8 +173,10 @@ void AAdventureGameCharacter::BeginOverlap(UPrimitiveComponent * OverlappedComp,
 		character->LeftFootSocket->SetCollisionProfileName(TEXT("NoCollision"));
 		character->RightFootSocket->SetCollisionProfileName(TEXT("NoCollision"));
 
-		// triggers hit animation if player is kicking on hit character
-		if (AsaiMakiAnimInstance->Kicking)
+		UE_LOG(LogTemp, Warning, TEXT("%s Kicking %s"), *this->GetName(), PlayerAnimInstance->EnableKick?TEXT("true"):TEXT("false"));
+
+		// triggers hit animation if player is kicking 
+		if (PlayerAnimInstance->EnableKick)
 			AsaiMakiAnimInstance->Hit = true;
 	}
 }

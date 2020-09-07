@@ -30,7 +30,7 @@ public:
 	bool IsKicking() const { return Kicking; }
 
 	UFUNCTION(BlueprintCallable)
-	bool CanKick() const { return EnableKick; }
+	void CanKick() { EnableKick = !EnableKick; }
 
 	UFUNCTION(BlueprintCallable, Category = AnimationProperties)
 	void UpdateAnimationProperties(float DeltaTime);
