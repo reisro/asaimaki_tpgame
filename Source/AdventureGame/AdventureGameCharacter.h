@@ -43,7 +43,7 @@ class AAdventureGameCharacter : public ACharacter
 
 	AAdventureGameCharacter();
 
-	UPROPERTY(VisibleAnywhere, Category = "Ninja")
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Ninja")
 	int32 Health;
 
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */

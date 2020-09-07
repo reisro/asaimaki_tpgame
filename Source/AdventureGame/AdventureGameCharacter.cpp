@@ -15,7 +15,8 @@
 //////////////////////////////////////////////////////////////////////////
 // AAdventureGameCharacter
 
-AAdventureGameCharacter::AAdventureGameCharacter()
+AAdventureGameCharacter::AAdventureGameCharacter():
+	Health(100)
 {
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
@@ -130,9 +131,8 @@ int32 AAdventureGameCharacter::GetHealth() const
 {
 	UE_LOG(LogTemp, Warning, TEXT("Character Health %d"), this->Health);
 
-	//return NinjaAttributeSet->GetHealth();
-
 	return this->Health;
+	//return NinjaAttributeSet->GetHealth();
 }
 
 void AAdventureGameCharacter::SetHealth(int32 _health)
