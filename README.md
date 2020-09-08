@@ -10,11 +10,11 @@ Download from this repository link the source code of the project.
 
 Made with Unreal Engine 4.24.3
 
-## Features
+## Demo Features
 
 - Retargeting animation characters of different skeletons
 - C++ and Blueprint communication
 - UI UMG
 - Chaos physics
-- NPC Behavior tree
+- AI: Behavior Tree with Decorators and Services, EQS
 - Character Ability System
