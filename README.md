@@ -1,6 +1,6 @@
 # Asai Maki Project
 
-It is a game application featuring third-person character mechanics gameplay as a demonstrated proof of skills using the unreal engine.
+It is a third-person game featuring character combat system mechanics to demonstrate proof of skills using the unreal engine.
 
 ## Installation
 
