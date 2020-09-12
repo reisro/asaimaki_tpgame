@@ -1,4 +1,7 @@
-// Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
+
+// Base class  Character, designed to be inherited from player and NPC characters
+// Asai Maki Demo Project v1.0
+// Rodrigo Reis
 
 #pragma once
 
@@ -43,9 +46,6 @@ class AAdventureGameCharacter : public ACharacter
 
 	AAdventureGameCharacter();
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Ninja")
-	int32 Health;
-
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseTurnRate;
@@ -74,6 +74,9 @@ class AAdventureGameCharacter : public ACharacter
 	void BeginOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
 protected:
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Ninja")
+		int32 Health;
 
 	/** Resets HMD orientation in VR. */
 	void OnResetVR();
