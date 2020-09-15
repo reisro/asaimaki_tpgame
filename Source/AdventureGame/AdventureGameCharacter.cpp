@@ -21,6 +21,8 @@ AAdventureGameCharacter::AAdventureGameCharacter():
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 
+	NinjaAttributeSet = CreateDefaultSubobject<UNinjaAttributeSet>(TEXT("NinjaAttributeSet"));
+
 	// Set collision sockets
 	LeftFootSocket = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftFootColl"));
 	RightFootSocket = CreateDefaultSubobject<UBoxComponent>(TEXT("RightFootCol"));
