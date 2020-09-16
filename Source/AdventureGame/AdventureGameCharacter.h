@@ -8,14 +8,16 @@
 #include "AsaiMaki_TPGame.h"
 #include "AsaiMakiFootCollision.h"
 #include "AsaiMakiAnimInstance.h"
+#include "NinjaAbilitySystemComponent.h"
 #include "NinjaAttributeSet.h"
+#include "AbilitySystemInterface.h"
 #include "GameFramework/Character.h"
 #include "AdventureGameCharacter.generated.h"
 
 class AsaiMakiFootCollision;
 
 UCLASS(config=Game)
-class AAdventureGameCharacter : public ACharacter
+class AAdventureGameCharacter : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 
@@ -64,11 +66,16 @@ class AAdventureGameCharacter : public ACharacter
 	// a fast data access to the collision class
 	TWeakObjectPtr<AsaiMakiFootCollision> leftFootCollision;
 
+	UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+
 	UFUNCTION(BlueprintCallable)
 	int32 GetHealth() const;
 
 	UFUNCTION(BlueprintCallable)
 	void SetHealth(int32 _health);
+
+	UFUNCTION(BlueprintCallable, Category="Abilities")
+	void ActivateNinjaAbility();
 
 	UFUNCTION()
 	void BeginOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
@@ -76,7 +83,12 @@ class AAdventureGameCharacter : public ACharacter
 protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Ninja")
-		int32 Health;
+	int32 Health;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Abilities")
+	int32 NinjaLevel;
+
+	UNinjaAbilitySystemComponent* NinjaAbilitySystem;
 
 	/** Resets HMD orientation in VR. */
 	void OnResetVR();

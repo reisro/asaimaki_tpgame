@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "UObject/PrimaryAssetId.h"
 #include "AsaiMakiCommonTypes.generated.h"
 
 UENUM(BlueprintType) 
@@ -45,7 +46,7 @@ enum ItemType
 };
 
 USTRUCT(BlueprintType)
-struct ADVENTUREGAME_API FAsaiMakiItem
+struct ADVENTUREGAME_API FAsaiMakiNinjaItem
 {
 	GENERATED_BODY()
 		

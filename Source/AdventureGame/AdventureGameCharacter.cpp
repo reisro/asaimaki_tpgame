@@ -16,12 +16,13 @@
 // AAdventureGameCharacter
 
 AAdventureGameCharacter::AAdventureGameCharacter():
-	Health(100)
+	Health(100), NinjaLevel(1)
 {
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 
 	NinjaAttributeSet = CreateDefaultSubobject<UNinjaAttributeSet>(TEXT("NinjaAttributeSet"));
+	NinjaAbilitySystem = CreateDefaultSubobject<UNinjaAbilitySystemComponent>(TEXT("NinjaAbilitySystemComponent"));
 
 	// Set collision sockets
 	LeftFootSocket = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftFootColl"));
@@ -140,6 +141,16 @@ int32 AAdventureGameCharacter::GetHealth() const
 void AAdventureGameCharacter::SetHealth(int32 _health)
 {
 	Health = _health;
+}
+
+void AAdventureGameCharacter::ActivateNinjaAbility()
+{
+	
+}
+
+UAbilitySystemComponent* AAdventureGameCharacter::GetAbilitySystemComponent() const
+{
+	return NinjaAbilitySystem;
 }
 
 void AAdventureGameCharacter::BeginOverlap(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
