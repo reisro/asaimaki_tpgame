@@ -17,4 +17,4 @@ Made with Unreal Engine 4.24.3
 - UI UMG
 - Chaos physics
 - AI: Behavior Tree with Decorators and Services, EQS
-- Character Ability System
+- Gameplay Ability System
