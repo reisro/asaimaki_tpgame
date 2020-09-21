@@ -11,6 +11,7 @@
 #include "NinjaAbilitySystemComponent.h"
 #include "NinjaAttributeSet.h"
 #include "AbilitySystemInterface.h"
+#include "NinjaGameplayAbility.h"
 #include "GameFramework/Character.h"
 #include "AdventureGameCharacter.generated.h"
 
@@ -41,8 +42,8 @@ class AAdventureGameCharacter : public ACharacter, public IAbilitySystemInterfac
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UAsaiMakiAnimInstance* AsaiMakiAnimInstance;
 
-	UPROPERTY(VisibleAnywhere)
-	UNinjaAttributeSet* NinjaAttributeSet;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	class UAsaiMakiAnimInstance* NinjaAnimInstance;
 
 	public:
 
@@ -75,7 +76,13 @@ class AAdventureGameCharacter : public ACharacter, public IAbilitySystemInterfac
 	void SetHealth(int32 _health);
 
 	UFUNCTION(BlueprintCallable, Category="Abilities")
-	void ActivateNinjaAbility();
+	void ActivateStartupNinjaAbility();
+
+	UFUNCTION(BlueprintCallable, Category = "Abilities")
+    void GetActiveAbilitiesWithTags(FGameplayTagContainer AbilityTags, TArray<UNinjaGameplayAbility*>& ActiveAbilities);
+
+	UFUNCTION(BlueprintCallable, Category="Abilities")
+	bool ActivateAbilitiesWithTag(FGameplayTagContainer AbilityTag, bool bAllowRemoteActivation = true);
 
 	UFUNCTION()
 	void BeginOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
@@ -88,7 +95,20 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Abilities")
 	int32 NinjaLevel;
 
+	UPROPERTY()
 	UNinjaAbilitySystemComponent* NinjaAbilitySystem;
+
+	UPROPERTY(VisibleAnywhere)
+	UNinjaAttributeSet* NinjaAttributeSet;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Abilities")
+	TArray<TSubclassOf<UNinjaGameplayAbility>> GameplayAbilities;
+
+	//UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Abilities")
+	//TMap<FAsaiMakiNinjaItem, TSubclassOf<UNinjaGameplayAbility>> MapAbilities;
+
+	//UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Abilities")
+	//TMap<FAsaiMakiNinjaItem, FGameplayAbilitySpecHandle> MapAbilitiesHandle;
 
 	/** Resets HMD orientation in VR. */
 	void OnResetVR();

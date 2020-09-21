@@ -143,9 +143,23 @@ void AAdventureGameCharacter::SetHealth(int32 _health)
 	Health = _health;
 }
 
-void AAdventureGameCharacter::ActivateNinjaAbility()
+void AAdventureGameCharacter::ActivateStartupNinjaAbility()
 {
-	
+}
+
+void AAdventureGameCharacter::GetActiveAbilitiesWithTags(FGameplayTagContainer AbilityTags,
+	TArray<UNinjaGameplayAbility*>& ActiveAbilities)
+{
+	if (NinjaAbilitySystem)
+		NinjaAbilitySystem->GetActiveAbilitiesWithTags(AbilityTags, ActiveAbilities);
+}
+
+bool AAdventureGameCharacter::ActivateAbilitiesWithTag(FGameplayTagContainer AbilityTag, bool bAllowRemoteActivation)
+{
+	if (NinjaAbilitySystem)
+		return NinjaAbilitySystem->TryActivateAbilitiesByTag(AbilityTag, bAllowRemoteActivation);
+
+	return false;
 }
 
 UAbilitySystemComponent* AAdventureGameCharacter::GetAbilitySystemComponent() const
@@ -165,7 +179,7 @@ void AAdventureGameCharacter::BeginOverlap(UPrimitiveComponent * OverlappedComp,
 		character->SetHealth(0);
 
 		// get anim instance from hit character
-		AsaiMakiAnimInstance = Cast<UAsaiMakiAnimInstance>(character->GetMesh()->GetAnimInstance());
+		NinjaAnimInstance = Cast<UAsaiMakiAnimInstance>(character->GetMesh()->GetAnimInstance());
 
 		// get anim instance from this character
 		UAsaiMakiAnimInstance* PlayerAnimInstance;
@@ -190,7 +204,7 @@ void AAdventureGameCharacter::BeginOverlap(UPrimitiveComponent * OverlappedComp,
 
 		// triggers hit animation if player is kicking 
 		if (PlayerAnimInstance->EnableKick)
-			AsaiMakiAnimInstance->Hit = true;
+			NinjaAnimInstance->Hit = true;
 	}
 }
 

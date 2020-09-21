@@ -45,6 +45,7 @@
           <e p="Private" t="Include">
             <e p="AsaiMakiCommonTypes.cpp" t="Include" />
             <e p="AsaiMakiItem.cpp" t="Include" />
+            <e p="CombatSkill.cpp" t="Include" />
             <e p="NinjaAbilitySystemComponent.cpp" t="Include" />
             <e p="NinjaAIController.cpp" t="Include" />
             <e p="NinjaAttributeSet.cpp" t="Include" />
@@ -53,6 +54,7 @@
           <e p="Public" t="Include">
             <e p="AsaiMakiCommonTypes.h" t="Include" />
             <e p="AsaiMakiItem.h" t="Include" />
+            <e p="CombatSkill.h" t="Include" />
             <e p="NinjaAbilitySystemComponent.h" t="Include" />
             <e p="NinjaAIController.h" t="Include" />
             <e p="NinjaAttributeSet.h" t="Include" />

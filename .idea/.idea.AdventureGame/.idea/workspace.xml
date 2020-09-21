@@ -41,13 +41,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.h" />
-        <option value="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.cpp" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/Public/AsaiMakiCommonTypes.h" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/Public/NinjaGameplayAbility.h" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/Private/NinjaGameplayAbility.cpp" />
-        <option value="$PROJECT_DIR$/Source/AdventureGame/Public/AsaiMakiItem.h" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/Private/AsaiMakiItem.cpp" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/Public/AsaiMakiItem.h" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.h" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.cpp" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/Public/NinjaAbilitySystemComponent.h" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/Private/NinjaAbilitySystemComponent.cpp" />
       </list>
     </option>
   </component>
@@ -490,14 +492,21 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1600202800296</updated>
-      <workItem from="1600202834743" duration="12510000" />
+      <workItem from="1600202834743" duration="12654000" />
+      <workItem from="1600317590830" duration="3450000" />
+      <workItem from="1600321555669" duration="1984000" />
+      <workItem from="1600399165744" duration="2057000" />
+      <workItem from="1600569422708" duration="2751000" />
+      <workItem from="1600578828984" duration="445000" />
+      <workItem from="1600579916132" duration="1155000" />
+      <workItem from="1600652091296" duration="6649000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -521,6 +530,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
