@@ -24,8 +24,8 @@ AAdventureGameCharacter::AAdventureGameCharacter():
 
 	NinjaAttributeSet = CreateDefaultSubobject<UNinjaAttributeSet>(TEXT("NinjaAttributeSet"));
 	NinjaAbilitySystem = CreateDefaultSubobject<UNinjaAbilitySystemComponent>(TEXT("NinjaAbilitySystemComponent"));
-
-	CheatClass = UCheatManager::StaticClass();
+	
+	//CheatClass = UCheatManager::StaticClass();
 
 	// Set collision sockets
 	LeftFootSocket = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftFootColl"));
@@ -172,9 +172,6 @@ UAbilitySystemComponent* AAdventureGameCharacter::GetAbilitySystemComponent() co
 
 void AAdventureGameCharacter::BeginOverlap(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
 {
-	CheatManager = NewObject<UCheatManager>(this, CheatClass);
-	CheatManager->InitCheatManager();
-	
 	if ((OtherActor != nullptr) && (OtherActor != this) && (this->ActorHasTag(TEXT("Player")))) 
 	{
 		UE_LOG(LogTemp, Warning, TEXT("%s"), *OtherActor->GetName());
@@ -214,7 +211,7 @@ void AAdventureGameCharacter::BeginOverlap(UPrimitiveComponent * OverlappedComp,
 			// triggers ninja character screw animation
 			NinjaAnimInstance->Hit = true;
 			// activates slow motion effect in game speed
-			CheatManager->Slomo(Slowmotion);
+			//CheatManager->Slomo(Slowmotion);
 		}
 	}
 }
