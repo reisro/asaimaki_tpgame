@@ -10,6 +10,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "GameFramework/CheatManager.h"
 #include "Engine/EngineTypes.h"
 
 //////////////////////////////////////////////////////////////////////////
@@ -23,6 +24,8 @@ AAdventureGameCharacter::AAdventureGameCharacter():
 
 	NinjaAttributeSet = CreateDefaultSubobject<UNinjaAttributeSet>(TEXT("NinjaAttributeSet"));
 	NinjaAbilitySystem = CreateDefaultSubobject<UNinjaAbilitySystemComponent>(TEXT("NinjaAbilitySystemComponent"));
+
+	CheatClass = UCheatManager::StaticClass();
 
 	// Set collision sockets
 	LeftFootSocket = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftFootColl"));
@@ -169,6 +172,9 @@ UAbilitySystemComponent* AAdventureGameCharacter::GetAbilitySystemComponent() co
 
 void AAdventureGameCharacter::BeginOverlap(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
 {
+	CheatManager = NewObject<UCheatManager>(this, CheatClass);
+	CheatManager->InitCheatManager();
+	
 	if ((OtherActor != nullptr) && (OtherActor != this) && (this->ActorHasTag(TEXT("Player")))) 
 	{
 		UE_LOG(LogTemp, Warning, TEXT("%s"), *OtherActor->GetName());
@@ -204,7 +210,12 @@ void AAdventureGameCharacter::BeginOverlap(UPrimitiveComponent * OverlappedComp,
 
 		// triggers hit animation if player is kicking 
 		if (PlayerAnimInstance->EnableKick)
+		{
+			// triggers ninja character screw animation
 			NinjaAnimInstance->Hit = true;
+			// activates slow motion effect in game speed
+			CheatManager->Slomo(Slowmotion);
+		}
 	}
 }
 

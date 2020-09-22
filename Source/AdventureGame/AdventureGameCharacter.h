@@ -13,6 +13,7 @@
 #include "AbilitySystemInterface.h"
 #include "NinjaGameplayAbility.h"
 #include "GameFramework/Character.h"
+#include "GameFramework/CheatManager.h"
 #include "AdventureGameCharacter.generated.h"
 
 class AsaiMakiFootCollision;
@@ -56,6 +57,15 @@ class AAdventureGameCharacter : public ACharacter, public IAbilitySystemInterfac
 	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Effects")
+	float Slowmotion = 0.3f;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Effects")
+	UCheatManager* CheatManager;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Effects")
+	TSubclassOf<UCheatManager> CheatClass;
 
 	class FootCollisionComponent* RFootCollision;
 
