@@ -11,5 +11,9 @@ public class AdventureGame : ModuleRules
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
         
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore", "HeadMountedDisplay", "GameplayAbilities", "GameplayTasks", "GameplayTags" });
+		
+		PublicDependencyModuleNames.Add("ImGui");
+		
+		PrivateDependencyModuleNames.Add("ImGui");
 	}
 }
