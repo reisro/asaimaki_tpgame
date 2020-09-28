@@ -105,6 +105,9 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Abilities")
 	int32 NinjaLevel;
 
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Abilities")
+	int32 bAbilitesInitialized;
+
 	UPROPERTY()
 	UNinjaAbilitySystemComponent* NinjaAbilitySystem;
 

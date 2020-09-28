@@ -2,8 +2,14 @@
 
 #pragma once
 
+// ----------------------------------------------------------------------------------------------------------------
+// A Gameplay Ability derived from the UGameplayAbility class, defines what an in-game ability does, what it costs
+// to use, when or under what conditions it can be used, and so on.
+// ----------------------------------------------------------------------------------------------------------------
+
 #include "CoreMinimal.h"
 #include "Abilities/GameplayAbility.h"
+#include "AsaiMakiAbilityTypes.h"
 #include "NinjaGameplayAbility.generated.h"
 
 /**
@@ -19,5 +25,5 @@ class ADVENTUREGAME_API UNinjaGameplayAbility : public UGameplayAbility
 
 	/** Map of gameplay tags to gameplay effect containers */
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = GameplayEffects)
-	TMap<FGameplayTag, int32> EffectContainerMap;
+	TMap<FGameplayTag, FAsaiMakiGameplayEffectContainer> EffectContainerMap;
 };

@@ -148,6 +148,15 @@ void AAdventureGameCharacter::SetHealth(int32 _health)
 
 void AAdventureGameCharacter::ActivateStartupNinjaAbility()
 {
+	check(NinjaAbilitySystem);
+
+	if (GetLocalRole() == ROLE_Authority && !bAbilitesInitialized)
+	{
+		for (TSubclassOf<UNinjaGameplayAbility>& StartupAbility: GameplayAbilities)
+		{
+			NinjaAbilitySystem->GiveAbility(FGameplayAbilitySpec(StartupAbility, NinjaLevel, INDEX_NONE, this));
+		}
+	}
 }
 
 void AAdventureGameCharacter::GetActiveAbilitiesWithTags(FGameplayTagContainer AbilityTags,

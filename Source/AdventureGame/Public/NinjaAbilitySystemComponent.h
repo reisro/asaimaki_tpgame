@@ -2,6 +2,18 @@
 
 #pragma once
 
+// --------------------------------------------------------------------------------------------------------------------
+// The Ability System Component is used for implementing, designing and building abilities and attributes for a game
+// character. Any actor that interacts with the Gameplay Ability must have an Ability System Component.
+// Before an actor can use an ability, the ability system component must be granted that Ability.
+//
+// GiveAbility: specifies the ability to add with an FGameplayAbilitySpec, and returns an FGameplayAbilitySpecHandle
+// GiveAbilityAndActivateOnce: specifies the ability to add with an FGameplayAbilitySpec, and returns an FGameplayAbilitySpecHandle
+// ClearAbility: TBD
+// SetRemoveAbilityOnEnd: TBD
+// CleanAllAbilities: TBD
+// --------------------------------------------------------------------------------------------------------------------
+
 #include "CoreMinimal.h"
 #include "AbilitySystemComponent.h"
 #include "NinjaGameplayAbility.h"
