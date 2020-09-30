@@ -104,6 +104,18 @@ AAdventureGameCharacter::AAdventureGameCharacter():
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 }
 
+void AAdventureGameCharacter::PossessedBy(AController* NewController)
+{
+	Super::PossessedBy(NewController);
+
+	// Initialize our abilities
+	if (NinjaAbilitySystem)
+	{
+		NinjaAbilitySystem->InitAbilityActorInfo(this, this);
+		ActivateStartupNinjaAbility();
+	}
+}
+
 //////////////////////////////////////////////////////////////////////////
 // Input
 
@@ -155,6 +167,7 @@ void AAdventureGameCharacter::ActivateStartupNinjaAbility()
 		for (TSubclassOf<UNinjaGameplayAbility>& StartupAbility: GameplayAbilities)
 		{
 			NinjaAbilitySystem->GiveAbility(FGameplayAbilitySpec(StartupAbility, NinjaLevel, INDEX_NONE, this));
+			UE_LOG(LogTemp, Warning, TEXT("Added startup gameplay abilities to %s"), *this->GetName() );
 		}
 	}
 }
