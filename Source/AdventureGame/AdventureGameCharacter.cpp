@@ -187,6 +187,23 @@ bool AAdventureGameCharacter::ActivateAbilitiesWithTag(FGameplayTagContainer Abi
 	return false;
 }
 
+int AAdventureGameCharacter::GetGameplayAbilities() const
+{
+	return GameplayAbilities.Num();
+}
+
+FString AAdventureGameCharacter::GetGameplayAbilityName() const
+{
+	FString none = "";
+	
+	for (auto const abilityName: GameplayAbilities)
+	{
+		return abilityName.GetDefaultObject()->AbilityTags.ToString();
+	}
+
+	return none;
+}
+
 UAbilitySystemComponent* AAdventureGameCharacter::GetAbilitySystemComponent() const
 {
 	return NinjaAbilitySystem;

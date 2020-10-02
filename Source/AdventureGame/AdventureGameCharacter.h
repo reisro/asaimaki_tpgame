@@ -5,6 +5,8 @@
 
 #pragma once
 
+#include <string>
+
 #include "AsaiMaki_TPGame.h"
 #include "AsaiMakiFootCollision.h"
 #include "AsaiMakiAnimInstance.h"
@@ -96,6 +98,10 @@ class AAdventureGameCharacter : public ACharacter, public IAbilitySystemInterfac
 
 	UFUNCTION(BlueprintCallable, Category="Abilities")
 	bool ActivateAbilitiesWithTag(FGameplayTagContainer AbilityTag, bool bAllowRemoteActivation = true);
+
+	int GetGameplayAbilities() const;
+
+	FString GetGameplayAbilityName() const;
 
 	UFUNCTION()
 	void BeginOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);

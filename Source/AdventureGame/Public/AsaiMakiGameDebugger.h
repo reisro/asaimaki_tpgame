@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "imgui.h"
 #include "ImGuiDelegates.h"
+#include "AdventureGame/AdventureGameCharacter.h"
+
 #include "AsaiMakiGameDebugger.generated.h"
 
 UCLASS()
@@ -13,7 +15,13 @@ class ADVENTUREGAME_API AAsaiMakiGameDebugger : public AActor
 {
 	GENERATED_BODY()
 	
-public:	
+public:
+
+	bool ShowAvailableCharacterAbilities_flag;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	AAdventureGameCharacter* PlayerCharacter;
+	
 	// Sets default values for this actor's properties
 	AAsaiMakiGameDebugger();
 
@@ -27,5 +35,8 @@ public:
 
 	UFUNCTION(BlueprintCallable)
     void ActivateMainMenuBar();
+
+	UFUNCTION()
+	void ShowAvailableCharacterAbilities();
 
 };

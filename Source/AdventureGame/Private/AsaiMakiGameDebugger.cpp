@@ -43,7 +43,7 @@ void AAsaiMakiGameDebugger::ActivateMainMenuBar()
 		{
 			if (ImGui::MenuItem("Core")) {}
 			if (ImGui::MenuItem("Animation")) {}
-			if (ImGui::MenuItem("Abilities")) {}
+			if (ImGui::MenuItem("Abilities")) { FImGuiDelegates::OnMultiContextDebug().AddUFunction(this, "ShowAvailableCharacterAbilities");}
 			if (ImGui::MenuItem("Items")) {}
 			ImGui::EndMenu();
 		}
@@ -53,4 +53,18 @@ void AAsaiMakiGameDebugger::ActivateMainMenuBar()
 		}
 	}
 	ImGui::EndMainMenuBar();
+}
+
+void AAsaiMakiGameDebugger::ShowAvailableCharacterAbilities()
+{
+	PlayerCharacter = Cast<AAdventureGameCharacter>(UGameplayStatics::GetPlayerCharacter(GetWorld(),0));
+	ImGui::SetNextWindowPos(ImVec2(0.0f,1.0f), ImGuiCond_Once, ImVec2(0.0f,0.0f));
+	ImGui::SetNextWindowBgAlpha(0.15f);
+	if (ImGui::Begin("Asai Maki Abilities"))
+	{
+		ImGui::Text("Number of Abilities: %d", PlayerCharacter->GetGameplayAbilities());
+		ImGui::Text("Ability Tag: %s", ToCStr(*PlayerCharacter->GetGameplayAbilityName()));
+		ImGui::Separator();	
+	}
+	ImGui::End();
 }
