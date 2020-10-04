@@ -170,6 +170,19 @@ void AAdventureGameCharacter::ActivateStartupNinjaAbility()
 			UE_LOG(LogTemp, Warning, TEXT("Added startup gameplay abilities to %s"), *this->GetName() );
 		}
 	}
+
+	// Now apply passives
+    for (TSubclassOf<UGameplayEffect>& GameplayEffect : PassiveGameplayEffects)
+    {
+        FGameplayEffectContextHandle EffectContext = NinjaAbilitySystem->MakeEffectContext();
+        EffectContext.AddSourceObject(this);
+
+        FGameplayEffectSpecHandle NewHandle = NinjaAbilitySystem->MakeOutgoingSpec(GameplayEffect, NinjaLevel, EffectContext);
+        if (NewHandle.IsValid())
+        {
+        	FActiveGameplayEffectHandle ActiveGEHandle = NinjaAbilitySystem->ApplyGameplayEffectSpecToTarget(*NewHandle.Data.Get(), NinjaAbilitySystem);
+        }
+    }
 }
 
 void AAdventureGameCharacter::GetActiveAbilitiesWithTags(FGameplayTagContainer AbilityTags,
@@ -192,13 +205,14 @@ int AAdventureGameCharacter::GetGameplayAbilities() const
 	return GameplayAbilities.Num();
 }
 
-FString AAdventureGameCharacter::GetGameplayAbilityName() const
+std::string AAdventureGameCharacter::GetGameplayAbilityName() const
 {
-	FString none = "";
+	std::string none = "";
 	
 	for (auto const abilityName: GameplayAbilities)
 	{
-		return abilityName.GetDefaultObject()->AbilityTags.ToString();
+		none = *ToCStr(abilityName.GetDefaultObject()->AbilityTags.ToString());
+		return none;
 	}
 
 	return none;

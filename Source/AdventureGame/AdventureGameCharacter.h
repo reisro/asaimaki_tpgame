@@ -72,10 +72,6 @@ class AAdventureGameCharacter : public ACharacter, public IAbilitySystemInterfac
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Effects")
 	TSubclassOf<UCheatManager> CheatClass;
 
-	class FootCollisionComponent* RFootCollision;
-
-	class FootCollisionComponent* LFootCollision;
-
 	// a fast data access to the collision class
 	TWeakObjectPtr<AsaiMakiFootCollision> rightFootCollision;
 
@@ -101,7 +97,7 @@ class AAdventureGameCharacter : public ACharacter, public IAbilitySystemInterfac
 
 	int GetGameplayAbilities() const;
 
-	FString GetGameplayAbilityName() const;
+	std::string GetGameplayAbilityName() const;
 
 	UFUNCTION()
 	void BeginOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
@@ -125,6 +121,10 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Abilities")
 	TArray<TSubclassOf<UNinjaGameplayAbility>> GameplayAbilities;
+
+	/** Passive gameplay effects applied on creation */
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = Abilities)
+	TArray<TSubclassOf<UGameplayEffect>> PassiveGameplayEffects;
 
 	//UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Abilities")
 	//TMap<FAsaiMakiNinjaItem, TSubclassOf<UNinjaGameplayAbility>> MapAbilities;

@@ -63,7 +63,7 @@ void AAsaiMakiGameDebugger::ShowAvailableCharacterAbilities()
 	if (ImGui::Begin("Asai Maki Abilities"))
 	{
 		ImGui::Text("Number of Abilities: %d", PlayerCharacter->GetGameplayAbilities());
-		ImGui::Text("Ability Tag: %s", ToCStr(*PlayerCharacter->GetGameplayAbilityName()));
+		ImGui::Text("Ability Tag: %s", PlayerCharacter->GetGameplayAbilityName().c_str());
 		ImGui::Separator();	
 	}
 	ImGui::End();
