@@ -263,8 +263,6 @@ void AAdventureGameCharacter::BeginOverlap(UPrimitiveComponent * OverlappedComp,
 		{
 			// triggers ninja character screw animation
 			NinjaAnimInstance->Hit = true;
-			// activates slow motion effect in game speed
-			//CheatManager->Slomo(Slowmotion);
 		}
 	}
 }

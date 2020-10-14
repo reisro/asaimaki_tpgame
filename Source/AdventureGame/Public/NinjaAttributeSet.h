@@ -22,8 +22,16 @@ class ADVENTUREGAME_API UNinjaAttributeSet : public UAttributeSet
 	
 	public:
 	UNinjaAttributeSet();
+	virtual void PostGameplayEffectExecute(const FGameplayEffectModCallbackData& Data) override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Attributes")
 	FGameplayAttributeData Health;
 	ATTRIBUTE_ACCESSORS(UNinjaAttributeSet, Health)
+
+	UPROPERTY(BlueprintReadOnly, Category = "Damage")
+	FGameplayAttributeData Damage;
+	ATTRIBUTE_ACCESSORS(UNinjaAttributeSet, Damage)
+
+	protected:
+	virtual void OnRep_Health();
 };

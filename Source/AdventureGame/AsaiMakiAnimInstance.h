@@ -32,6 +32,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void CanKick() { EnableKick = !EnableKick; }
 
+	UFUNCTION(BlueprintCallable)
+	void ThisReadyToFight() { ReadyToFight = !ReadyToFight; }
+
 	UFUNCTION(BlueprintCallable, Category = AnimationProperties)
 	void UpdateAnimationProperties(float DeltaTime);
 
@@ -52,6 +55,9 @@ public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Animation)
 	bool Hit;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Animation)
+	bool ReadyToFight;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Movement)
 	class APawn* Pawn;
