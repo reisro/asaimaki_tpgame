@@ -47,7 +47,7 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Animation)
 	bool EnableKick;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Animation)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Animation)
 	bool Kicking;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Animation)

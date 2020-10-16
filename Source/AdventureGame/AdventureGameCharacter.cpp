@@ -232,7 +232,8 @@ void AAdventureGameCharacter::BeginOverlap(UPrimitiveComponent * OverlappedComp,
 		// hold a reference for the hit character
 		AAdventureGameCharacter * character = Cast<AAdventureGameCharacter>(OtherActor);
 
-		character->SetHealth(0);
+		if (OtherActor->ActorHasTag(TEXT("Ninja")))
+			character->SetHealth(0);
 
 		// get anim instance from hit character
 		NinjaAnimInstance = Cast<UAsaiMakiAnimInstance>(character->GetMesh()->GetAnimInstance());
@@ -259,12 +260,10 @@ void AAdventureGameCharacter::BeginOverlap(UPrimitiveComponent * OverlappedComp,
 		UE_LOG(LogTemp, Warning, TEXT("%s Kicking %s"), *this->GetName(), PlayerAnimInstance->EnableKick?TEXT("true"):TEXT("false"));
 
 		// triggers hit animation if player is kicking 
-		if (PlayerAnimInstance->EnableKick)
+		if (PlayerAnimInstance->IsKicking())
 		{
-			// triggers ninja character screw animation
+			// triggers ninja character screw hit animation
 			NinjaAnimInstance->Hit = true;
-			// activates slow motion effect in game speed
-			//CheatManager->Slomo(Slowmotion);
 		}
 	}
 }
