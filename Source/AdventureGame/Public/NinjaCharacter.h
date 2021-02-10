@@ -2,19 +2,21 @@
 
 #pragma once
 
-#include <string>
-
-#include "AsaiMaki_TPGame.h"
-#include "AsaiMakiAnimInstance.h"
+#include "AdventureGame/AsaiMaki_TPGame.h"
+#include "AdventureGame/AsaiMakiAnimInstance.h"
+#include "AdventureGame/AsaiMakiFootCollision.h"
 #include "NinjaAbilitySystemComponent.h"
 #include "NinjaAttributeSet.h"
 #include "AbilitySystemInterface.h"
 #include "NinjaGameplayAbility.h"
 #include "GameFramework/Character.h"
-#include "NinjaBaseCharacter.generated.h"
+#include "GameFramework/CheatManager.h"
+#include "NinjaCharacter.generated.h"
+
+using namespace std;
 
 UCLASS(config=Game)
-class ADVENTUREGAME_API ANinjaBaseCharacter : public ACharacter, public IAbilitySystemInterface
+class ADVENTUREGAME_API ANinjaCharacter : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 	
@@ -33,7 +35,7 @@ class ADVENTUREGAME_API ANinjaBaseCharacter : public ACharacter, public IAbility
 public:
 	
 	// Sets default values for this character's properties
-	ANinjaBaseCharacter();
+	ANinjaCharacter();
 
 	virtual void PossessedBy(AController* NewController) override;
 
@@ -61,8 +63,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Abilities")
 	int GetGameplayAbilities() const;
 
-	UFUNCTION()
-	std::string GetGameplayAbilityName() const;
+	UAbilitySystemComponent* GetAbilitySystemComponent() const override;
+
+	//UFUNCTION()
+	//std::string GetGameplayAbilityName() const;
 
 	UFUNCTION()
     virtual void BeginOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
@@ -71,7 +75,7 @@ public:
 	virtual void OnHealthDamage(float DeltaValue, const struct FGameplayTagContainer& EventTags);
 
 	UFUNCTION()
-	virtual void OnHitDamage(float DamageAmount, const FHitResult& HitInfo, const struct FGameplayTagContainer& DamageTags, ANinjaBaseCharacter* InstigatorCharacter, AActor* DamageCauser); 
+	virtual void OnHitDamage(float DamageAmount, const FHitResult& HitInfo, const struct FGameplayTagContainer& DamageTags, ANinjaCharacter* InstigatorCharacter, AActor* DamageCauser); 
 
 protected:
 

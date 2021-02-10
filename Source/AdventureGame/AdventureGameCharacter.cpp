@@ -124,7 +124,9 @@ void AAdventureGameCharacter::SetupPlayerInputComponent(class UInputComponent* P
 	// Set up gameplay key bindings
 	check(PlayerInputComponent);
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
+	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+	PlayerInputComponent->BindAction("Kick", IE_Pressed, this, &ACharacter::Jump);
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &AAdventureGameCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &AAdventureGameCharacter::MoveRight);

@@ -46,10 +46,19 @@
         <option value="$PROJECT_DIR$/Source/AdventureGame/Private/NinjaGameplayAbility.cpp" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/Private/AsaiMakiItem.cpp" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/Public/AsaiMakiItem.h" />
-        <option value="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.h" />
-        <option value="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.cpp" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/Public/NinjaAbilitySystemComponent.h" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/Private/NinjaAbilitySystemComponent.cpp" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/Private/NinjaBaseCharacter.cpp" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/NinjaBaseCharacter.cpp" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/NinjaBaseCharacter.h" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/Public/NinjaBaseCharacter.h" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/Public/NinjaCharacter.h" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/Private/NinjaCharacter.cpp" />
+        <option value="$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.26/Engine/Source/Runtime/Engine/Private/Character.cpp" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/AsaiMakiAnimInstance.cpp" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.h" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/AsaiMakiAnimInstance.h" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.cpp" />
       </list>
     </option>
   </component>
@@ -500,6 +509,15 @@
       <workItem from="1600578828984" duration="445000" />
       <workItem from="1600579916132" duration="1155000" />
       <workItem from="1600652091296" duration="6649000" />
+      <workItem from="1604121540223" duration="1628000" />
+      <workItem from="1610425461215" duration="1101000" />
+      <workItem from="1610596429525" duration="903000" />
+      <workItem from="1610597428180" duration="452000" />
+      <workItem from="1610598082374" duration="1758000" />
+      <workItem from="1612584517907" duration="346000" />
+      <workItem from="1612755295952" duration="1718000" />
+      <workItem from="1612929373451" duration="4254000" />
+      <workItem from="1613190946509" duration="2782000" />
     </task>
     <servers />
   </component>
@@ -536,10 +554,9 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="259" y="20" key="SettingsEditor" timestamp="1600210283155">
+    <state x="35" y="0" width="930" height="1064" key="dock-window-1" timestamp="1610599856841">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="-1182" y="14" key="SettingsEditor/0.0.1920.1050/-1366.0.1366.738@-1366.0.1366.738" timestamp="1600203601442" />
-    <state x="259" y="20" key="SettingsEditor/0.0.1920.1050/-1366.0.1366.738@0.0.1920.1050" timestamp="1600210283155" />
+    <state x="35" y="0" width="930" height="1064" key="dock-window-1/0.0.1920.1050/-1366.0.1366.738@0.0.1920.1050" timestamp="1610599856841" />
   </component>
 </project>
