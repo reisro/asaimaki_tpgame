@@ -66,6 +66,9 @@ class AAdventureGameCharacter : public ACharacter, public IAbilitySystemInterfac
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Effects")
 	float Slowmotion = 0.3f;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly , Category = "Ninja")
+	bool IsNinjaBoss;
+
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category="Effects")
 	UCheatManager* CheatManager;
 

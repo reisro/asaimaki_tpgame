@@ -56,9 +56,11 @@
         <option value="$PROJECT_DIR$/Source/AdventureGame/Private/NinjaCharacter.cpp" />
         <option value="$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.26/Engine/Source/Runtime/Engine/Private/Character.cpp" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/AsaiMakiAnimInstance.cpp" />
-        <option value="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.h" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/AsaiMakiAnimInstance.h" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.cpp" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/Public/AsaiMakeGame.h" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.h" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/Private/AsaiMakeGame.cpp" />
       </list>
     </option>
   </component>
@@ -518,6 +520,9 @@
       <workItem from="1612755295952" duration="1718000" />
       <workItem from="1612929373451" duration="4254000" />
       <workItem from="1613190946509" duration="2782000" />
+      <workItem from="1613331510832" duration="7934000" />
+      <workItem from="1613446586471" duration="1209000" />
+      <workItem from="1613492649150" duration="3085000" />
     </task>
     <servers />
   </component>
