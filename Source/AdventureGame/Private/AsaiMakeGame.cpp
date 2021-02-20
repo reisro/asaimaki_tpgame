@@ -30,8 +30,8 @@ void AAsaiMakeGame::ChooseRandomBoss()
 
 	int32 NinjaID = FMath::RandRange(0,numberOfNinjas-1);
 
-	Boss = Ninjas[NinjaID];
-	Boss->IsNinjaBoss = true;
+	for (AAdventureGameCharacter* Ninja : Ninjas)
+		Ninja->IsNinjaBoss = true;
 }
 
 AAdventureGameCharacter* AAsaiMakeGame::GetNinjaBoss() const
