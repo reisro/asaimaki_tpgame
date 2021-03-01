@@ -22,11 +22,11 @@ class ADVENTUREGAME_API ANinjaCharacter : public ACharacter, public IAbilitySyst
 	
 	/** Left Foot Socket to simulate collision against left foot character animations */
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
-	class UBoxComponent* LeftFootSocket;
+	class UBoxComponent* LeftFootCollider;
 
 	/** Left Foot Socket to simulate collision against left foot character animations */
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
-	class UBoxComponent* RightFootSocket;
+	class UBoxComponent* RightFootCollider;
 
 	// Anim instance class
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Camera, meta = (AllowPrivateAccess = "true"))
@@ -87,6 +87,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Abilities")
 	int32 AbilitiesInitialized;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Abilities")
+	int32 bAbilitesInitialized;
 
 	UPROPERTY()
 	UNinjaAbilitySystemComponent* NinjaAbilitySystem;

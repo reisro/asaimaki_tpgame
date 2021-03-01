@@ -52,15 +52,15 @@
         <option value="$PROJECT_DIR$/Source/AdventureGame/NinjaBaseCharacter.cpp" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/NinjaBaseCharacter.h" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/Public/NinjaBaseCharacter.h" />
-        <option value="$PROJECT_DIR$/Source/AdventureGame/Public/NinjaCharacter.h" />
-        <option value="$PROJECT_DIR$/Source/AdventureGame/Private/NinjaCharacter.cpp" />
         <option value="$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.26/Engine/Source/Runtime/Engine/Private/Character.cpp" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/AsaiMakiAnimInstance.cpp" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/AsaiMakiAnimInstance.h" />
-        <option value="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.cpp" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/Public/AsaiMakeGame.h" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.h" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/Private/AsaiMakeGame.cpp" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/Public/NinjaCharacter.h" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.cpp" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/Private/NinjaCharacter.cpp" />
       </list>
     </option>
   </component>
@@ -526,6 +526,7 @@
       <workItem from="1613617556891" duration="251000" />
       <workItem from="1613714325908" duration="848000" />
       <workItem from="1614229371556" duration="614000" />
+      <workItem from="1614560429314" duration="4021000" />
     </task>
     <servers />
   </component>
@@ -562,9 +563,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="35" y="0" width="930" height="1064" key="dock-window-1" timestamp="1610599856841">
+    <state x="28" y="13" width="930" height="1029" key="dock-window-1" timestamp="1614568760174">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="35" y="0" width="930" height="1064" key="dock-window-1/0.0.1920.1050/-1366.0.1366.738@0.0.1920.1050" timestamp="1610599856841" />
+    <state x="28" y="13" width="930" height="1029" key="dock-window-1/0.0.1920.1050@0.0.1920.1050" timestamp="1614568760174" />
   </component>
 </project>

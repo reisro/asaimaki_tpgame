@@ -24,8 +24,6 @@ AAdventureGameCharacter::AAdventureGameCharacter():
 
 	NinjaAttributeSet = CreateDefaultSubobject<UNinjaAttributeSet>(TEXT("NinjaAttributeSet"));
 	NinjaAbilitySystem = CreateDefaultSubobject<UNinjaAbilitySystemComponent>(TEXT("NinjaAbilitySystemComponent"));
-	
-	//CheatClass = UCheatManager::StaticClass();
 
 	// Set collision sockets
 	LeftFootSocket = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftFootColl"));
