@@ -535,6 +535,7 @@
       <workItem from="1614229371556" duration="614000" />
       <workItem from="1614560429314" duration="4021000" />
       <workItem from="1614632140033" duration="4452000" />
+      <workItem from="1614655914995" duration="2545000" />
     </task>
     <servers />
   </component>
@@ -571,11 +572,11 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="28" y="13" width="930" height="1029" key="dock-window-1" timestamp="1614568760174">
+    <state x="287" y="31" width="930" height="1029" key="dock-window-1" timestamp="1614656922583">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="35" y="0" width="930" height="1064" key="dock-window-1/0.0.1920.1050/-1366.0.1366.738@0.0.1920.1050" timestamp="1610599856841" />
-    <state x="28" y="13" width="930" height="1029" key="dock-window-1/0.0.1920.1050@0.0.1920.1050" timestamp="1614568760174" />
+    <state x="287" y="31" width="930" height="1029" key="dock-window-1/0.0.1920.1050@0.0.1920.1050" timestamp="1614656922583" />
     <state x="148" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1614636026890">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
