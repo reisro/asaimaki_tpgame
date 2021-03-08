@@ -33,7 +33,25 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdventureGame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdventureGame/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdventureGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdventureGame/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdventureGame/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdventureGame/riderModule.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/Montages/Run_Jump_Montage.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AI/BTTask_FindEnemy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/BTTask_FindEnemy.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AI/BTTask_ReadyToFight.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/BTTask_ReadyToFight.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AI/BTTask_UpdateState.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/BTTask_UpdateState.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AI/Ninja_Controller.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Ninja_Controller.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Abilities/AsaiMaki/GA_SuperComboAbility.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Abilities/AsaiMaki/GA_SuperComboAbility.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AsaiMaki_BlockoutLevel.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AsaiMaki_BlockoutLevel.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/AsaiMaki_BlockoutLevel_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AsaiMaki_BlockoutLevel_BuiltData.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/AnimNotify/JumpSectionNS_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/Animations/AnimNotify/JumpSectionNS_BP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/Kick_Right_Spin_Heel.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/Animations/Kick_Right_Spin_Heel.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/Montages/SimpleComboMontage.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/Animations/Montages/SimpleComboMontage.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Character/Blueprints/AsaiMaki_AnimBP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/Blueprints/AsaiMaki_AnimBP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Character/Blueprints/AsaiMaki_AnimBP_cpp.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/Blueprints/AsaiMaki_AnimBP_cpp.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Character/Blueprints/ThirdPerson_AsaiMakiCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Character/Blueprints/ThirdPerson_AsaiMakiCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Japanese_Temple/maps/Japanese_Temple_Demo.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Japanese_Temple/maps/Japanese_Temple_Demo.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/NinjaFemale_CharacterBP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/NinjaFemale_CharacterBP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Ninja_CharacterBP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ninja_CharacterBP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MCO_Mocap_Basics.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/AdventureGame/AsaiMakiAnimInstance.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/AdventureGame/AsaiMakiAnimInstance.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,13 +77,13 @@
         <option value="$PROJECT_DIR$/Source/AdventureGame/Public/NinjaBaseCharacter.h" />
         <option value="$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_4.26/Engine/Source/Runtime/Engine/Private/Character.cpp" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/AsaiMakiAnimInstance.cpp" />
-        <option value="$PROJECT_DIR$/Source/AdventureGame/AsaiMakiAnimInstance.h" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/Public/AsaiMakeGame.h" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.h" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/Private/AsaiMakeGame.cpp" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/Public/NinjaCharacter.h" />
-        <option value="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.cpp" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/Private/NinjaCharacter.cpp" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/AsaiMakiAnimInstance.h" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.cpp" />
       </list>
     </option>
   </component>
@@ -537,6 +555,7 @@
       <workItem from="1614632140033" duration="4452000" />
       <workItem from="1614655914995" duration="2545000" />
       <workItem from="1614751270468" duration="702000" />
+      <workItem from="1615091992006" duration="14559000" />
     </task>
     <servers />
   </component>
@@ -578,6 +597,10 @@
     </state>
     <state x="35" y="0" width="930" height="1064" key="dock-window-1/0.0.1920.1050/-1366.0.1366.738@0.0.1920.1050" timestamp="1610599856841" />
     <state x="287" y="31" width="930" height="1029" key="dock-window-1/0.0.1920.1050@0.0.1920.1050" timestamp="1614656922583" />
+    <state x="619" y="242" key="run.anything.popup" timestamp="1615093098091">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="619" y="242" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1615093098091" />
     <state x="148" y="228" width="672" height="678" key="search.everywhere.popup" timestamp="1614636026890">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

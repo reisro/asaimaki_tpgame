@@ -1,6 +1,9 @@
 // Copyright 1998-2019 Epic Games, Inc. All Rights Reserved.
 
 #include "AdventureGameCharacter.h"
+
+#include <cassert>
+
 #include "HeadMountedDisplayFunctionLibrary.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
@@ -26,7 +29,7 @@ AAdventureGameCharacter::AAdventureGameCharacter():
 	NinjaAbilitySystem = CreateDefaultSubobject<UNinjaAbilitySystemComponent>(TEXT("NinjaAbilitySystemComponent"));
 
 	// Set collision sockets
-	LeftFootSocket = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftFootColl"));
+	LeftFootSocket = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftFootCol"));
 	RightFootSocket = CreateDefaultSubobject<UBoxComponent>(TEXT("RightFootCol"));
 
 	// Create rules for attaching sockets on components
@@ -100,6 +103,10 @@ AAdventureGameCharacter::AAdventureGameCharacter():
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
+	AsaiMakiAnimInstance = Cast<UAsaiMakiAnimInstance>(this->GetMesh()->GetAnimInstance());
+	
+	if (AsaiMakiAnimInstance == nullptr && this->ActorHasTag(FName(TEXT("Player"))))
+		UE_LOG(LogTemp, Warning, TEXT("Null Ptr Anim Instance"));
 }
 
 void AAdventureGameCharacter::PossessedBy(AController* NewController)
@@ -238,17 +245,8 @@ void AAdventureGameCharacter::BeginOverlap(UPrimitiveComponent * OverlappedComp,
 		// get anim instance from hit character
 		NinjaAnimInstance = Cast<UAsaiMakiAnimInstance>(character->GetMesh()->GetAnimInstance());
 
-		// get anim instance from this character
-		UAsaiMakiAnimInstance* PlayerAnimInstance;
-		PlayerAnimInstance = Cast<UAsaiMakiAnimInstance>(this->GetMesh()->GetAnimInstance());
-
 		if (AsaiMakiAnimInstance == nullptr)
 			UE_LOG(LogTemp, Warning, TEXT("Some warning message"));
-
-		//FDetachmentTransformRules transformRules = FDetachmentTransformRules(EDetachmentRule::KeepWorld);
-
-		//character->GetMesh()->DetachFromComponent(transformRules);
-		//CameraBoom->DetachFromParent(true);
 
 		// avoid collision with capsule component, skeletal mesh
 		// and left and right socket collisions
@@ -257,10 +255,10 @@ void AAdventureGameCharacter::BeginOverlap(UPrimitiveComponent * OverlappedComp,
 		character->LeftFootSocket->SetCollisionProfileName(TEXT("NoCollision"));
 		character->RightFootSocket->SetCollisionProfileName(TEXT("NoCollision"));
 
-		UE_LOG(LogTemp, Warning, TEXT("%s Kicking %s"), *this->GetName(), PlayerAnimInstance->EnableKick?TEXT("true"):TEXT("false"));
+		//UE_LOG(LogTemp, Warning, TEXT("%s Kicking %s"), *this->GetName(), AsaiMakiAnimInstance->EnableKick?TEXT("true"):TEXT("false"));
 
 		// triggers hit animation if player is kicking 
-		if (PlayerAnimInstance->IsKicking())
+		if (AsaiMakiAnimInstance->Attacking)
 		{
 			// triggers ninja character screw hit animation
 			NinjaAnimInstance->Hit = true;
@@ -296,7 +294,7 @@ void AAdventureGameCharacter::LookUpAtRate(float Rate)
 }
 
 void AAdventureGameCharacter::MoveForward(float Value)
-{
+{	
 	if ((Controller != NULL) && (Value != 0.0f))
 	{
 		// find out which way is forward
@@ -311,7 +309,7 @@ void AAdventureGameCharacter::MoveForward(float Value)
 
 void AAdventureGameCharacter::MoveRight(float Value)
 {
-	if ( (Controller != NULL) && (Value != 0.0f) )
+	if ( (Controller != NULL) && (Value != 0.0f))
 	{
 		// find out which way is right
 		const FRotator Rotation = Controller->GetControlRotation();
