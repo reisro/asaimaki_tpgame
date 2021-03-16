@@ -68,6 +68,9 @@ public:
 	//UFUNCTION()
 	//std::string GetGameplayAbilityName() const;
 
+	UFUNCTION(BlueprintImplementableEvent)
+	void OnDamaged(float DamageAmount, const FHitResult& HitInfo, const struct FGameplayTagContainer& DamageTags, ANinjaCharacter* InstigatorCharacter, AActor* DamageCauser);
+
 	UFUNCTION()
     virtual void BeginOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 
@@ -75,7 +78,9 @@ public:
 	virtual void OnHealthDamage(float DeltaValue, const struct FGameplayTagContainer& EventTags);
 
 	UFUNCTION()
-	virtual void OnHitDamage(float DamageAmount, const FHitResult& HitInfo, const struct FGameplayTagContainer& DamageTags, ANinjaCharacter* InstigatorCharacter, AActor* DamageCauser); 
+	virtual void OnHitDamage(float DamageAmount, const FHitResult& HitInfo, const struct FGameplayTagContainer& DamageTags, ANinjaCharacter* InstigatorCharacter, AActor* DamageCauser);
+
+	
 
 protected:
 

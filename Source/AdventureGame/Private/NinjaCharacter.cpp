@@ -23,8 +23,8 @@ Health(100), NinjaLevel(1)
 	// Create rules for attaching sockets on components
 	FAttachmentTransformRules transformRules = FAttachmentTransformRules(EAttachmentRule::KeepWorld, EAttachmentRule::KeepWorld, EAttachmentRule::KeepWorld, true);
 
-	LeftFootCollider->AttachToComponent(GetMesh(), transformRules, FName(TEXT("LeftFoot")));
-	RightFootCollider->AttachToComponent(GetMesh(), transformRules, FName(TEXT("RightFoot")));
+	LeftFootCollider->SetupAttachment(GetMesh(), FName(TEXT("LeftFoot")));
+	RightFootCollider->SetupAttachment(GetMesh(), FName(TEXT("RightFoot")));
 
 	// Create a transform that holds location, rotation and scale of collision components
 	FTransform LFTransform;
@@ -182,5 +182,6 @@ void ANinjaCharacter::OnHealthDamage(float DeltaValue, const FGameplayTagContain
 void ANinjaCharacter::OnHitDamage(float DamageAmount, const FHitResult& HitInfo,
 	const FGameplayTagContainer& DamageTags, ANinjaCharacter* InstigatorCharacter, AActor* DamageCauser)
 {
+	OnDamaged(DamageAmount, HitInfo, DamageTags, InstigatorCharacter, DamageCauser);
 }
 

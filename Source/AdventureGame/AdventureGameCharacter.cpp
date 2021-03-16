@@ -35,8 +35,8 @@ AAdventureGameCharacter::AAdventureGameCharacter():
 	// Create rules for attaching sockets on components
 	FAttachmentTransformRules transformRules = FAttachmentTransformRules(EAttachmentRule::KeepWorld, EAttachmentRule::KeepWorld, EAttachmentRule::KeepWorld, true);
 
-	LeftFootSocket->AttachToComponent(GetMesh(), transformRules, FName(TEXT("LeftFoot")));
-	RightFootSocket->AttachToComponent(GetMesh(), transformRules, FName(TEXT("RightFoot")));
+	LeftFootSocket->SetupAttachment(GetMesh(), FName(TEXT("LeftFoot")));
+	RightFootSocket->SetupAttachment(GetMesh(), FName(TEXT("RightFoot")));
 
 	// Create a transform that holds location, rotation and scale of collision components
 	FTransform fTransform;
