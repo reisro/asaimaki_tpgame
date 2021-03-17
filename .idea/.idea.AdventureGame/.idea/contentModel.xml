@@ -154,6 +154,7 @@
             <e p="AsaiMakiCommonTypes.cpp" t="Include" />
             <e p="AsaiMakiGameDebugger.cpp" t="Include" />
             <e p="AsaiMakiItem.cpp" t="Include" />
+            <e p="AsaiMakiNinja.cpp" t="Include" />
             <e p="CombatSkill.cpp" t="Include" />
             <e p="NinjaAbilitySystemComponent.cpp" t="Include" />
             <e p="NinjaAIController.cpp" t="Include" />
@@ -167,6 +168,7 @@
             <e p="AsaiMakiCommonTypes.h" t="Include" />
             <e p="AsaiMakiGameDebugger.h" t="Include" />
             <e p="AsaiMakiItem.h" t="Include" />
+            <e p="AsaiMakiNinja.h" t="Include" />
             <e p="CombatSkill.h" t="Include" />
             <e p="NinjaAbilitySystemComponent.h" t="Include" />
             <e p="NinjaAIController.h" t="Include" />
@@ -12290,6 +12292,25 @@
             <e p="FileSDKFileReader.h" t="Include" />
             <e p="FileSDKFileType.h" t="Include" />
           </e>
+        </e>
+      </e>
+    </e>
+    <e p="E:\Program Files\UE_4.26\Engine\Plugins\Marketplace\SecondWindow" t="Include">
+      <e p="Resources" t="Include">
+        <e p="Icon128.png" t="Include" />
+      </e>
+      <e p="SecondWindow.uplugin" t="Include" />
+      <e p="Source" t="Include">
+        <e p="SecondWindow" t="Include">
+          <e p="Private" t="Include">
+            <e p="SecondWindow.cpp" t="Include" />
+            <e p="SecondWindow_library.cpp" t="Include" />
+          </e>
+          <e p="Public" t="Include">
+            <e p="SecondWindow.h" t="Include" />
+            <e p="SecondWindow_library.h" t="Include" />
+          </e>
+          <e p="SecondWindow.Build.cs" t="Include" />
         </e>
       </e>
     </e>

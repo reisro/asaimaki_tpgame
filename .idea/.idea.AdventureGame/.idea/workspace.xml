@@ -30,112 +30,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5bab5429-52b9-4805-bc0a-7968b56b7b00" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdventureGame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdventureGame/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdventureGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdventureGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/01_Frank_Moves_Idle.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/11_Frank_Moves_Getup.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/20_Frank_Punch_Left_UpperCut_Inplace.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/21_Frank_Punch_Right_UpperCut_Inplace.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/35_Frank_TestCombo03_upper_hook_elbow_and_spin_heel_kick_Inplace.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/36_Frank_Hit_Screw.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/BTService_IAmAlive.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/BTService_IAmAlive.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/BTTask_Attack.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/BTTask_Attack.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/BTTask_FindEnemy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/BTTask_FindEnemy.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/BTTask_ReadyToFight.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/BTTask_ReadyToFight.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/BTTask_UpdateState.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/BTTask_UpdateState.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Ninja_Controller.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Ninja_Controller.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/AI/Ninja_Enemy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AI/Ninja_Enemy.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Abilities/AsaiMaki/GA_SuperComboAbility.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Abilities/AsaiMaki/GA_SuperComboAbility.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Abilities/GA_AbilityBase.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Abilities/GA_AbilityBase.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Abilities/GA_PunchAbility.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Abilities/GA_PunchAbility.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Abilities/GA_RunFlyingKickAbility.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Abilities/GA_RunFlyingKickAbility.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Abilities/GA_RunFrontFlipAbility.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Abilities/GA_RunFrontFlipAbility.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Abilities/GA_TripleAttackAbility.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Abilities/GA_TripleAttackAbility.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdventureGame/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdventureGame/riderModule.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/AsaiMaki_BlockoutLevel.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AsaiMaki_BlockoutLevel.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/AsaiMaki_BlockoutLevel_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AsaiMaki_BlockoutLevel_BuiltData.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/BasicAttackMontage.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/18_Frank_Punch_Left_Jab_Inplace.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/19_Frank_Punch_Right_Straight_Inplace.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/21_Frank_Punch_Right_UpperCut_Inplace.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/32_Frank_Kick_Double_RoundHouse_Inplace.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/AnimNotify/JumpSectionNS_BP.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/Combo_Fury.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/Front_Flip_Anim.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/Gathering_Objects.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/Hit_Screw.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/Hit_Screw_Adjust.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/Kick_Front_Right_Hammer.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/Kick_Right_Spin_Heel.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/Knocked_Out.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/Montages/SimpleComboMontage.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/Ninja_Idle.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/Pushing.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/ScrewHitAdjust.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/Sneak_Walk.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/ThirdPersonIdle.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/ThirdPersonJump_End.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/ThirdPersonJump_Loop.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/ThirdPersonJump_Start.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/ThirdPersonRun.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Animations/ThirdPersonWalk.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/AsaiMakiBlend_IdleWalk.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/AsaiMaki_IdleRun.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Blueprints/AsaiMaki_AnimBP.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Blueprints/AsaiMaki_AnimBP_cpp.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Blueprints/AsaiMaki_BP.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Blueprints/NinjaBaseCharacter_BP.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Blueprints/ThirdPerson_AsaiMakiCharacter.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Kachujin_diffuse.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Kachujin_normal.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Kachujin_specular.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Standing_Idle.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Standing_Idle_Anim_Take_001.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Standing_Idle_Anim_mixamo_com.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Standing_Idle_PhysicsAsset.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/Standing_Idle_Skeleton.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/kachujin_MAT.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Character/kachujin_MAT_Debug.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Flying_Kick.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Front_Flip_Anim1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Hit_Screw.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Kick_Front_Right_Hammer.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Kick_Front_Right_Hammer.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Kick_Right_Spin_Heel.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Kick_Right_Spin_Heel.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Mannequin/Animations/AsaiMaki_AnimBP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Mannequin/Animations/AsaiMaki_AnimBP.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Mannequin/Animations/AsaiMaki_IdleRun.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Mannequin/Animations/AsaiMaki_IdleRun.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Mannequin/Animations/Kachujin_diffuse.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Mannequin/Animations/Kachujin_diffuse.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Mannequin/Animations/Kachujin_normal.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Mannequin/Animations/Kachujin_normal.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Mannequin/Animations/Kachujin_specular.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Mannequin/Animations/Kachujin_specular.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Mannequin/Animations/Standing_Idle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Mannequin/Animations/Standing_Idle.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Mannequin/Animations/Standing_Idle_Anim_Take_001.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Mannequin/Animations/Standing_Idle_Anim_Take_001.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Mannequin/Animations/Standing_Idle_Anim_mixamo_com.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Mannequin/Animations/Standing_Idle_Anim_mixamo_com.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Mannequin/Animations/Standing_Idle_PhysicsAsset.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Mannequin/Animations/Standing_Idle_PhysicsAsset.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Mannequin/Animations/Standing_Idle_Skeleton.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Mannequin/Animations/Standing_Idle_Skeleton.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Mannequin/Animations/kachujin_MAT.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Mannequin/Animations/kachujin_MAT.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/NinjaFemale_CharacterBP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/NinjaFemale_CharacterBP.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ninja_AnimationBP.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ninja_CharacterBP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Ninja_CharacterBP.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ninja_IdleBlend.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ninja_Punch_Left_Jab_Inplace.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Ninja_Punch_Right_Straight_Inplace.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/PunchAttackMontage.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ReadyAttackMontage.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/RunFlyingKickMontage.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/RunFrontFlipMontage.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Running.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Simple_Ninja_BP.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonCPP/Blueprints/ThirdPersonCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonCPP/Blueprints/ThirdPersonCharacter.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonIdle.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonIdle.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonIdle1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonJump_End.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonJump_End.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonJump_Loop.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonJump_Loop.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonJump_Start.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonJump_Start.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonRun.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonRun.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonRun1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonWalk.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/ThirdPersonWalk.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/ThirdPersonWalk1.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/TripleAttackMontage.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/AdventureGame/AdventureGameGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/AdventureGame/AdventureGameGameMode.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/AdventureGame/Private/NinjaCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/AdventureGame/Private/NinjaCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Characters/Blueprints/AsaiMaki_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Blueprints/AsaiMaki_BP.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/AdventureGame/Public/NinjaCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/AdventureGame/Public/NinjaCharacter.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -167,9 +67,11 @@
         <option value="$PROJECT_DIR$/Source/AdventureGame/Private/AsaiMakeGame.cpp" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/AsaiMakiAnimInstance.h" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.cpp" />
-        <option value="$PROJECT_DIR$/Source/AdventureGame/Public/NinjaCharacter.h" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/Private/NinjaCharacter.cpp" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/AdventureGameGameMode.cpp" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/Public/AsaiMakiNinja.h" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/Private/AsaiMakiNinja.cpp" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/Public/NinjaCharacter.h" />
       </list>
     </option>
   </component>
@@ -643,7 +545,9 @@
       <workItem from="1614751270468" duration="702000" />
       <workItem from="1615091992006" duration="15155000" />
       <workItem from="1615764018878" duration="3207000" />
-      <workItem from="1615839247004" duration="7455000" />
+      <workItem from="1615839247004" duration="7532000" />
+      <workItem from="1615907942298" duration="2756000" />
+      <workItem from="1615935536874" duration="3470000" />
     </task>
     <servers />
   </component>

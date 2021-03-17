@@ -19,6 +19,14 @@ UCLASS(config=Game)
 class ADVENTUREGAME_API ANinjaCharacter : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
+
+	/** Left Hand Socket to simulate collision against left foot character animations */
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
+	class UBoxComponent* LeftHandCollider;
+
+	/** Right Hand Socket to simulate collision against left foot character animations */
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
+	class UBoxComponent* RightHandCollider;
 	
 	/** Left Foot Socket to simulate collision against left foot character animations */
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
@@ -63,10 +71,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Abilities")
 	int GetGameplayAbilities() const;
 
-	UAbilitySystemComponent* GetAbilitySystemComponent() const override;
-
-	//UFUNCTION()
-	//std::string GetGameplayAbilityName() const;
+	UAbilitySystemComponent* GetAbilitySystemComponent() const;
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void OnDamaged(float DamageAmount, const FHitResult& HitInfo, const struct FGameplayTagContainer& DamageTags, ANinjaCharacter* InstigatorCharacter, AActor* DamageCauser);
@@ -79,8 +84,6 @@ public:
 
 	UFUNCTION()
 	virtual void OnHitDamage(float DamageAmount, const FHitResult& HitInfo, const struct FGameplayTagContainer& DamageTags, ANinjaCharacter* InstigatorCharacter, AActor* DamageCauser);
-
-	
 
 protected:
 
