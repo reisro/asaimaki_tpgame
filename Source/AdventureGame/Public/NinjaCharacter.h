@@ -50,9 +50,6 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
 	UFUNCTION(BlueprintCallable)
     int32 GetHealth() const;
 
@@ -92,9 +89,6 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Abilities")
 	int32 NinjaLevel;
-
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Abilities")
-	int32 AbilitiesInitialized;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Abilities")
 	int32 bAbilitesInitialized;

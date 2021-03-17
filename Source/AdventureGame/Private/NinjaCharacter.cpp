@@ -17,12 +17,16 @@ Health(100), NinjaLevel(1)
 	NinjaAbilitySystem = CreateDefaultSubobject<UNinjaAbilitySystemComponent>(TEXT("NinjaAbilitySystemComponent"));
 
 	// Set collision sockets
-	LeftFootCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftFootColl"));
+	LeftHandCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftHandCol"));
+	RightHandCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("RightHandCol"));
+	LeftFootCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftFootCol"));
 	RightFootCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("RightFootCol"));
 
 	// Create rules for attaching sockets on components
 	FAttachmentTransformRules transformRules = FAttachmentTransformRules(EAttachmentRule::KeepWorld, EAttachmentRule::KeepWorld, EAttachmentRule::KeepWorld, true);
 
+	LeftHandCollider->SetupAttachment(GetMesh(), FName(TEXT("LeftHand")));
+	RightHandCollider->SetupAttachment(GetMesh(), FName(TEXT("RightHand")));
 	LeftFootCollider->SetupAttachment(GetMesh(), FName(TEXT("LeftFoot")));
 	RightFootCollider->SetupAttachment(GetMesh(), FName(TEXT("RightFoot")));
 
@@ -59,12 +63,6 @@ Health(100), NinjaLevel(1)
 	RightFootCollider->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	RightFootCollider->SetGenerateOverlapEvents(true);
 	RightFootCollider->SetCollisionProfileName(TEXT("BlockAll"));
-
-	// Configure character movement
-	GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
-	GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f); // ...at this rotation rate
-	GetCharacterMovement()->JumpZVelocity = 600.f;
-	GetCharacterMovement()->AirControl = 0.2f;
 }
 
 void ANinjaCharacter::PossessedBy(AController* NewController)
@@ -90,19 +88,6 @@ void ANinjaCharacter::BeginPlay()
 void ANinjaCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-}
-
-// Called to bind functionality to input
-void ANinjaCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
-	// Set up gameplay key bindings
-	check(PlayerInputComponent);
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
-	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
 }
 

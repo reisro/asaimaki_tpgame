@@ -30,12 +30,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5bab5429-52b9-4805-bc0a-7968b56b7b00" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdventureGame/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdventureGame/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AdventureGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdventureGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AdventureGame/riderModule.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AdventureGame/riderModule.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/AsaiMaki_BlockoutLevel.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AsaiMaki_BlockoutLevel.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/AsaiMaki_BlockoutLevel_BuiltData.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/AsaiMaki_BlockoutLevel_BuiltData.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Characters/Blueprints/AsaiMaki_AnimBP_cpp.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Blueprints/AsaiMaki_AnimBP_cpp.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Characters/Blueprints/AsaiMaki_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Blueprints/AsaiMaki_BP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Characters/Blueprints/ThirdPerson_AsaiMakiCharacter.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/Blueprints/ThirdPerson_AsaiMakiCharacter.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Characters/JumpSectionNS_BP.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Characters/JumpSectionNS_BP.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/AdventureGame/AdventureGameGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/AdventureGame/AdventureGameGameMode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/AdventureGame/Private/AsaiMakiNinja.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/AdventureGame/Private/AsaiMakiNinja.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/AdventureGame/Private/NinjaCharacter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/AdventureGame/Private/NinjaCharacter.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/AdventureGame/Public/AsaiMakiNinja.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/AdventureGame/Public/AsaiMakiNinja.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Source/AdventureGame/Public/NinjaCharacter.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/AdventureGame/Public/NinjaCharacter.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,9 +72,9 @@
         <option value="$PROJECT_DIR$/Source/AdventureGame/Private/AsaiMakeGame.cpp" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/AsaiMakiAnimInstance.h" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/AdventureGameCharacter.cpp" />
+        <option value="$PROJECT_DIR$/Source/AdventureGame/Public/AsaiMakiNinja.h" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/Private/NinjaCharacter.cpp" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/AdventureGameGameMode.cpp" />
-        <option value="$PROJECT_DIR$/Source/AdventureGame/Public/AsaiMakiNinja.h" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/Private/AsaiMakiNinja.cpp" />
         <option value="$PROJECT_DIR$/Source/AdventureGame/Public/NinjaCharacter.h" />
       </list>
@@ -547,7 +552,8 @@
       <workItem from="1615764018878" duration="3207000" />
       <workItem from="1615839247004" duration="7532000" />
       <workItem from="1615907942298" duration="2756000" />
-      <workItem from="1615935536874" duration="3470000" />
+      <workItem from="1615935536874" duration="6574000" />
+      <workItem from="1615997802910" duration="8146000" />
     </task>
     <servers />
   </component>
@@ -584,9 +590,10 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="287" y="31" width="930" height="1029" key="dock-window-1" timestamp="1614656922583">
-      <screen x="0" y="0" width="1920" height="1050" />
+    <state x="-2" y="0" width="945" height="1033" key="dock-window-1" timestamp="1616016218149">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="-2" y="0" width="945" height="1033" key="dock-window-1/0.0.1920.1040@0.0.1920.1040" timestamp="1616016218149" />
     <state x="35" y="0" width="930" height="1064" key="dock-window-1/0.0.1920.1050/-1366.0.1366.738@0.0.1920.1050" timestamp="1610599856841" />
     <state x="287" y="31" width="930" height="1029" key="dock-window-1/0.0.1920.1050@0.0.1920.1050" timestamp="1614656922583" />
     <state x="619" y="242" key="run.anything.popup" timestamp="1615093098091">
