@@ -37,6 +37,9 @@ class ADVENTUREGAME_API AAsaiMakiNinja : public ANinjaCharacter
 	protected:
 
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+
+	virtual void SetupBodyColliders() override;
+	
 	/** Called for forwards/backward input */
 	void MoveForward(float Value);
 

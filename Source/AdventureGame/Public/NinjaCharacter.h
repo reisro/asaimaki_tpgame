@@ -20,22 +20,6 @@ class ADVENTUREGAME_API ANinjaCharacter : public ACharacter, public IAbilitySyst
 {
 	GENERATED_BODY()
 
-	/** Left Hand Socket to simulate collision against left foot character animations */
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
-	class UBoxComponent* LeftHandCollider;
-
-	/** Right Hand Socket to simulate collision against left foot character animations */
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
-	class UBoxComponent* RightHandCollider;
-	
-	/** Left Foot Socket to simulate collision against left foot character animations */
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
-	class UBoxComponent* LeftFootCollider;
-
-	/** Left Foot Socket to simulate collision against left foot character animations */
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
-	class UBoxComponent* RightFootCollider;
-
 	// Anim instance class
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UAsaiMakiAnimInstance* NinjaAnimInstance;
@@ -84,6 +68,38 @@ public:
 
 protected:
 
+	/** Left Hand Bone name to attach colliders */
+	UPROPERTY()
+	FName LeftHandBoneName;
+
+	/** Right Hand Bone name to attach colliders */
+	UPROPERTY()
+	FName RightHandBoneName;
+
+	/** Left Foot Bone name to attach colliders */
+	UPROPERTY()
+	FName LeftFootBoneName;
+
+	/** Right Foot Bone name to attach colliders */
+	UPROPERTY()
+	FName RightFootBoneName;
+	
+	/** Left Hand Socket to simulate collision against left foot character animations */
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
+	class UBoxComponent* LeftHandCollider;
+
+	/** Right Hand Socket to simulate collision against left foot character animations */
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
+	class UBoxComponent* RightHandCollider;
+	
+	/** Left Foot Socket to simulate collision against left foot character animations */
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
+	class UBoxComponent* LeftFootCollider;
+
+	/** Left Foot Socket to simulate collision against left foot character animations */
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Sockets Collision", meta = (AllowPrivateAccess = "true"))
+	class UBoxComponent* RightFootCollider;
+	
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Ninja")
 	int32 Health;
 
@@ -107,4 +123,6 @@ protected:
 	
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+
+	virtual void SetupBodyColliders();
 };

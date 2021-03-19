@@ -15,54 +15,8 @@ Health(100), NinjaLevel(1)
 
 	NinjaAttributeSet = CreateDefaultSubobject<UNinjaAttributeSet>(TEXT("NinjaAttributeSet"));
 	NinjaAbilitySystem = CreateDefaultSubobject<UNinjaAbilitySystemComponent>(TEXT("NinjaAbilitySystemComponent"));
-
-	// Set collision sockets
-	LeftHandCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftHandCol"));
-	RightHandCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("RightHandCol"));
-	LeftFootCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftFootCol"));
-	RightFootCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("RightFootCol"));
-
-	// Create rules for attaching sockets on components
-	FAttachmentTransformRules transformRules = FAttachmentTransformRules(EAttachmentRule::KeepWorld, EAttachmentRule::KeepWorld, EAttachmentRule::KeepWorld, true);
-
-	LeftHandCollider->SetupAttachment(GetMesh(), FName(TEXT("LeftHand")));
-	RightHandCollider->SetupAttachment(GetMesh(), FName(TEXT("RightHand")));
-	LeftFootCollider->SetupAttachment(GetMesh(), FName(TEXT("LeftFoot")));
-	RightFootCollider->SetupAttachment(GetMesh(), FName(TEXT("RightFoot")));
-
-	// Create a transform that holds location, rotation and scale of collision components
-	FTransform LFTransform;
-	FTransform RFTransform;
-
-	// Set Location
-	LFTransform.SetLocation(FVector(0.067608f, 6.154139f, 6.77425f));
-	RFTransform.SetLocation(FVector(-25.076216f, 6.154139f, 6.77425f));
-
-	// Set Rotator with float values
-	FRotator LeftCollisionRotator = FRotator(-89.148125f, 89.399956f, 0.024115f);
-	FRotator RightCollisionRotator = FRotator(-89.148125f, 89.399956f, 0.024115f);
-
-	// Create a Quaternion from a Rotator
-	FQuat QuatLeftCollision = FQuat(LeftCollisionRotator);
-	FQuat QuatRightCollision = FQuat(RightCollisionRotator);
-
-	// Set Rotation
-	LFTransform.SetRotation(QuatLeftCollision);
-	RFTransform.SetRotation(QuatRightCollision);
-
-	// Set Scale
-	LFTransform.SetScale3D(FVector(0.4385f, 0.1727f, 0.1464f));
-	RFTransform.SetScale3D(FVector(0.4385f, 0.1727f, 0.1464f));
-
-	LeftFootCollider->SetRelativeTransform(LFTransform);
-	LeftFootCollider->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-	LeftFootCollider->SetGenerateOverlapEvents(true);
-	LeftFootCollider->SetCollisionProfileName(TEXT("BlockAll"));
-
-	RightFootCollider->SetRelativeTransform(RFTransform);
-	RightFootCollider->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-	RightFootCollider->SetGenerateOverlapEvents(true);
-	RightFootCollider->SetCollisionProfileName(TEXT("BlockAll"));
+	
+	SetupBodyColliders();
 }
 
 void ANinjaCharacter::PossessedBy(AController* NewController)
@@ -80,8 +34,32 @@ void ANinjaCharacter::PossessedBy(AController* NewController)
 // Called when the game starts or when spawned
 void ANinjaCharacter::BeginPlay()
 {
-	Super::BeginPlay();
+	Super::BeginPlay();	
+}
+
+void ANinjaCharacter::SetupBodyColliders()
+{
+	// Set collision sockets
+	LeftHandCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftHandCol"));
+	RightHandCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("RightHandCol"));
+	LeftFootCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftFootCol"));
+	RightFootCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("RightFootCol"));
+
+	LeftHandCollider->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	LeftHandCollider->SetGenerateOverlapEvents(true);
+	LeftHandCollider->SetCollisionProfileName(TEXT("BlockAll"));
 	
+	RightHandCollider->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	RightHandCollider->SetGenerateOverlapEvents(true);
+	RightHandCollider->SetCollisionProfileName(TEXT("BlockAll"));
+	
+	LeftFootCollider->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	LeftFootCollider->SetGenerateOverlapEvents(true);
+	LeftFootCollider->SetCollisionProfileName(TEXT("BlockAll"));
+
+	RightFootCollider->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	RightFootCollider->SetGenerateOverlapEvents(true);
+	RightFootCollider->SetCollisionProfileName(TEXT("BlockAll"));
 }
 
 // Called every frame
@@ -169,4 +147,3 @@ void ANinjaCharacter::OnHitDamage(float DamageAmount, const FHitResult& HitInfo,
 {
 	OnDamaged(DamageAmount, HitInfo, DamageTags, InstigatorCharacter, DamageCauser);
 }
-
