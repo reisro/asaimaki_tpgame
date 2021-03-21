@@ -18,5 +18,7 @@ class ADVENTUREGAME_API AMaleNPCNinja : public ANinjaCharacter
 	AMaleNPCNinja();
 
 	protected:
-	virtual void SetupBodyColliders() override;
+
+	UFUNCTION(BlueprintCallable)
+	virtual void SetupBodyCollidersName() override;
 };

@@ -30,8 +30,6 @@ AAsaiMakiNinja::AAsaiMakiNinja()
     FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
     FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
     FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
-
-	SetupBodyColliders();
 }
 
 void AAsaiMakiNinja::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -54,17 +52,12 @@ void AAsaiMakiNinja::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
     PlayerInputComponent->BindAxis("LookUpRate", this, &AAsaiMakiNinja::LookUpAtRate);
 }
 
-void AAsaiMakiNinja::SetupBodyColliders()
+void AAsaiMakiNinja::SetupBodyCollidersName()
 {
     LeftHandBoneName = FName(TEXT("LeftHand"));
 	RightHandBoneName = FName(TEXT("RightHand"));
 	LeftFootBoneName = FName(TEXT("LeftFoot"));
 	RightFootBoneName = FName(TEXT("RightFoot"));
-
-	LeftHandCollider->SetupAttachment(GetMesh(), LeftHandBoneName);
-	RightHandCollider->SetupAttachment(GetMesh(), RightHandBoneName);
-	LeftFootCollider->SetupAttachment(GetMesh(), LeftFootBoneName);
-	RightFootCollider->SetupAttachment(GetMesh(), RightFootBoneName);
 }
 
 void AAsaiMakiNinja::MoveForward(float Value)

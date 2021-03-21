@@ -15,7 +15,7 @@ void AAsaiMakeGame::BeginPlay()
 {
 	Super::BeginPlay();
 
-	ChooseRandomBoss();
+	//ChooseRandomBoss();
 }
 
 // Called every frame

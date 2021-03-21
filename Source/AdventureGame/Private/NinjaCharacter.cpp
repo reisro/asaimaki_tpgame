@@ -16,7 +16,7 @@ Health(100), NinjaLevel(1)
 	NinjaAttributeSet = CreateDefaultSubobject<UNinjaAttributeSet>(TEXT("NinjaAttributeSet"));
 	NinjaAbilitySystem = CreateDefaultSubobject<UNinjaAbilitySystemComponent>(TEXT("NinjaAbilitySystemComponent"));
 	
-	SetupBodyColliders();
+	SetupBodyCollidersName();
 }
 
 void ANinjaCharacter::PossessedBy(AController* NewController)
@@ -37,29 +37,29 @@ void ANinjaCharacter::BeginPlay()
 	Super::BeginPlay();	
 }
 
-void ANinjaCharacter::SetupBodyColliders()
+void ANinjaCharacter::SetupBodyCollidersName()
 {
 	// Set collision sockets
-	LeftHandCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftHandCol"));
-	RightHandCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("RightHandCol"));
-	LeftFootCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftFootCol"));
-	RightFootCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("RightFootCol"));
+	//LeftHandCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftHandCol"));
+	//RightHandCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("RightHandCol"));
+	//LeftFootCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("LeftFootCol"));
+	//RightFootCollider = CreateDefaultSubobject<UBoxComponent>(TEXT("RightFootCol"));
 
-	LeftHandCollider->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-	LeftHandCollider->SetGenerateOverlapEvents(true);
-	LeftHandCollider->SetCollisionProfileName(TEXT("BlockAll"));
+	//LeftHandCollider->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	//LeftHandCollider->SetGenerateOverlapEvents(true);
+	//LeftHandCollider->SetCollisionProfileName(TEXT("BlockAll"));
 	
-	RightHandCollider->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-	RightHandCollider->SetGenerateOverlapEvents(true);
-	RightHandCollider->SetCollisionProfileName(TEXT("BlockAll"));
+	//RightHandCollider->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	//RightHandCollider->SetGenerateOverlapEvents(true);
+	//RightHandCollider->SetCollisionProfileName(TEXT("BlockAll"));
 	
-	LeftFootCollider->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-	LeftFootCollider->SetGenerateOverlapEvents(true);
-	LeftFootCollider->SetCollisionProfileName(TEXT("BlockAll"));
+	//LeftFootCollider->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	//LeftFootCollider->SetGenerateOverlapEvents(true);
+	//LeftFootCollider->SetCollisionProfileName(TEXT("BlockAll"));
 
-	RightFootCollider->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-	RightFootCollider->SetGenerateOverlapEvents(true);
-	RightFootCollider->SetCollisionProfileName(TEXT("BlockAll"));
+	//RightFootCollider->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	//RightFootCollider->SetGenerateOverlapEvents(true);
+	//RightFootCollider->SetCollisionProfileName(TEXT("BlockAll"));
 }
 
 // Called every frame
