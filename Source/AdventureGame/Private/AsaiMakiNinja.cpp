@@ -3,7 +3,7 @@
 
 #include "AsaiMakiNinja.h"
 
-AAsaiMakiNinja::AAsaiMakiNinja()
+AAsaiMakiNinja::AAsaiMakiNinja():ANinjaCharacter()
 {
     // set our turn rates for input
     BaseTurnRate = 45.f;

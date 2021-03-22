@@ -7,6 +7,8 @@
 ANinjaCharacter::ANinjaCharacter():
 Health(100), NinjaLevel(1)
 {
+	UE_LOG(LogTemp, Warning, TEXT("Ninja Character Constructor"));
+
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 

@@ -46,7 +46,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Abilities")
     void GetActiveAbilitiesWithTags(FGameplayTagContainer AbilityTags, TArray<UNinjaGameplayAbility*>& ActiveAbilities);
 
-	UFUNCTION(BlueprintCallable, Category="Abilities")
+	UFUNCTION(BlueprintCallable, Category= "Abilities")
     bool ActivateAbilitiesWithTag(FGameplayTagContainer AbilityTag, bool bAllowRemoteActivation = true);
 
 	UFUNCTION(BlueprintCallable, Category="Abilities")

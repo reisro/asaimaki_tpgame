@@ -3,7 +3,7 @@
 
 #include "MaleNPCNinja.h"
 
-AMaleNPCNinja::AMaleNPCNinja()
+AMaleNPCNinja::AMaleNPCNinja():ANinjaCharacter()
 {
     // Configure character movement
     GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
