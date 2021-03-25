@@ -4,6 +4,6 @@
 #include "NinjaAttributeSet.h"
 
 UNinjaAttributeSet::UNinjaAttributeSet():
-Health(100)
+Health(1.f)
 {
 }
