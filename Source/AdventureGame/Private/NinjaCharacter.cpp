@@ -17,8 +17,6 @@ Health(100), NinjaLevel(1)
 
 	NinjaAttributeSet = CreateDefaultSubobject<UNinjaAttributeSet>(TEXT("NinjaAttributeSet"));
 	NinjaAbilitySystem = CreateDefaultSubobject<UNinjaAbilitySystemComponent>(TEXT("NinjaAbilitySystemComponent"));
-	
-	SetupBodyCollidersName();
 }
 
 void ANinjaCharacter::PossessedBy(AController* NewController)
@@ -73,7 +71,7 @@ void ANinjaCharacter::Tick(float DeltaTime)
 
 int32 ANinjaCharacter::GetHealth() const
 {
-	UE_LOG(LogTemp, Warning, TEXT("Character Health %d"), this->Health);
+	//UE_LOG(LogTemp, Warning, TEXT("Character Health %d"), this->Health);
 
 	return this->Health;
 }

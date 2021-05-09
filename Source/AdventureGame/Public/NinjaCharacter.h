@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "AsaiMakiCommonTypes.h"
 #include "AdventureGame/AsaiMaki_TPGame.h"
 #include "AdventureGame/AsaiMakiAnimInstance.h"
 #include "AdventureGame/AsaiMakiFootCollision.h"
@@ -33,6 +34,9 @@ public:
 
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	UPROPERTY()
+	FGameplayTagContainer NinjaTag;
 
 	UFUNCTION(BlueprintCallable)
     int32 GetHealth() const;
