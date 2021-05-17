@@ -24,7 +24,7 @@ void AShuriken::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	Direction.X += Speed * 10.0f * DeltaTime;
+	Direction.X -= Speed * 10.0f * DeltaTime;
 	SetActorLocation(Direction);
 }
 
