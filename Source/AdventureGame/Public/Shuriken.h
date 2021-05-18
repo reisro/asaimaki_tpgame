@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "CinematicCamera/Public/CineCameraActor.h"
 #include "Shuriken.generated.h"
 
 UCLASS()
@@ -17,13 +16,16 @@ public:
 	AShuriken();
 
 	UPROPERTY(EditAnywhere)
-	float Speed;
+	float DisplacementSpeed;
+
+	UPROPERTY(EditAnywhere)
+	float RotationSpeed;
 
 	UPROPERTY(VisibleAnywhere)
 	FVector Direction;
-	
+
 	UPROPERTY(VisibleAnywhere)
-	ACineCameraActor* CineCamera;
+	FRotator Rotation;
 
 protected:
 	// Called when the game starts or when spawned

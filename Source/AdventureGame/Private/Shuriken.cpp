@@ -8,7 +8,6 @@ AShuriken::AShuriken()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
 }
 
 // Called when the game starts or when spawned
@@ -24,7 +23,8 @@ void AShuriken::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	Direction.X -= Speed * 10.0f * DeltaTime;
-	SetActorLocation(Direction);
+	Direction.X -= DisplacementSpeed * 10.0f * DeltaTime;
+	Rotation.Yaw += DeltaTime * RotationSpeed * 2.0f;
+	
+	SetActorLocationAndRotation(Direction, Rotation);
 }
-
