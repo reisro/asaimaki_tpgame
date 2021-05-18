@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "CinematicCamera/Public/CineCameraActor.h"
 #include "Shuriken.generated.h"
 
 UCLASS()
@@ -20,6 +21,9 @@ public:
 
 	UPROPERTY(VisibleAnywhere)
 	FVector Direction;
+	
+	UPROPERTY(VisibleAnywhere)
+	ACineCameraActor* CineCamera;
 
 protected:
 	// Called when the game starts or when spawned
