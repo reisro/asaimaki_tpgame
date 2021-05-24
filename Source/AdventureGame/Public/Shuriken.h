@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "DrawDebugHelpers.h"
 #include "Shuriken.generated.h"
 
 UCLASS()
@@ -27,6 +28,9 @@ public:
 	UPROPERTY(VisibleAnywhere)
 	FRotator Rotation;
 
+	UPROPERTY(EditAnywhere)
+	AActor* Target;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -34,5 +38,14 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	UFUNCTION(BlueprintCallable)
+	void SetTarget(AActor* actor);
+
+	UFUNCTION(BlueprintCallable)
+	void CalculateDirection();
+
+	UFUNCTION(BlueprintCallable)
+	void Throw(float DeltaTime);
 
 };

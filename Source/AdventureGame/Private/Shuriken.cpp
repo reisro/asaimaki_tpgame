@@ -14,17 +14,30 @@ AShuriken::AShuriken()
 void AShuriken::BeginPlay()
 {
 	Super::BeginPlay();
-
-	Direction = FVector::ForwardVector + GetActorLocation();
 }
 
 // Called every frame
 void AShuriken::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+}
 
+void AShuriken::SetTarget(AActor* actor)
+{
+	Target = actor;
+}
+
+void AShuriken::CalculateDirection()
+{
+	Direction = Target->GetActorLocation()-GetActorLocation();
+}
+
+void AShuriken::Throw(float DeltaTime)
+{
+	DrawDebugLine(GetWorld(),GetActorLocation(),GetActorLocation()+Direction, FColor::Cyan, true);
+	
 	Direction.X -= DisplacementSpeed * 10.0f * DeltaTime;
 	Rotation.Yaw += DeltaTime * RotationSpeed * 2.0f;
-	
+
 	SetActorLocationAndRotation(Direction, Rotation);
 }
