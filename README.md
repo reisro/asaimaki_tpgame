@@ -8,7 +8,7 @@ Download from this repository link the source code of the project.
 
 ## Version
 
-Made with Unreal Engine 4.24.3
+Made with Unreal Engine 4.26.1
 
 ## Demo Features
 
@@ -17,4 +17,5 @@ Made with Unreal Engine 4.24.3
 - UI UMG
 - Chaos physics
 - AI: Behavior Tree with Decorators and Services, EQS
+- Combat System
 - Gameplay Ability System
