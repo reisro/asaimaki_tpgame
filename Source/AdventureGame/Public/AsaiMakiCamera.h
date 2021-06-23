@@ -12,12 +12,6 @@ class ADVENTUREGAME_API AAsaiMakiCamera : public AActor
 {
 	GENERATED_BODY()
 
-	UPROPERTY(EditAnywhere)
-	AActor* CameraOne;
-
-	UPROPERTY(EditAnywhere)
-	AActor* CameraTwo;
-
 	UPROPERTY(VisibleAnywhere)
 	FVector NewDirection;
 
@@ -26,12 +20,22 @@ class ADVENTUREGAME_API AAsaiMakiCamera : public AActor
 	UPROPERTY(EditAnywhere)
 	float TimeToChangeCamera;
 	
-public:	
+public:
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	AActor* CameraOne;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	AActor* CameraCombat;
+	
 	// Sets default values for this actor's properties
 	AAsaiMakiCamera();
 
 	UFUNCTION(BlueprintCallable)
-	void CameraCloseUp();
+	void CameraCloseUp(float blendTime);
+
+	UFUNCTION(BlueprintCallable)
+    void CameraThreeSixtyRound(float blendTime);
 
 protected:
 	// Called when the game starts or when spawned
