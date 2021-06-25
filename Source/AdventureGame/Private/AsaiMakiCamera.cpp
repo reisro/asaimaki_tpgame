@@ -29,9 +29,10 @@ void AAsaiMakiCamera::CameraThreeSixtyRound(float blendTime)
 	float elapsedTime = GetGameTimeSinceCreation();
 	float pitchValue = FMath::Cos(elapsedTime);
 	float rollValue = FMath::Sin(elapsedTime);
-	
-	NewRotation = FRotator(pitchValue, 0.0f, rollValue);
-	CameraCombat->SetActorRotation(NewRotation);
+
+	NewDirection = FVector(pitchValue, rollValue, NewDirection.Z);
+	NewRotation = FRotator(.0f, 0.0f, rollValue*2.0f);
+	CameraCombat->SetActorLocationAndRotation(NewDirection, NewRotation);
 
 	// Blend smoothly to camera two
 	OurPlayer->SetViewTargetWithBlend(CameraCombat, blendTime);
