@@ -15,6 +15,9 @@ class ADVENTUREGAME_API AAsaiMakiCamera : public AActor
 	UPROPERTY(VisibleAnywhere)
 	FVector NewDirection;
 
+	UPROPERTY(VisibleAnywhere)
+	FRotator NewRotation;
+
 	APlayerController* OurPlayer;
 
 	UPROPERTY(EditAnywhere)

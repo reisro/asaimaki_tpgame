@@ -24,9 +24,17 @@ void AAsaiMakiCamera::CameraCloseUp(float blendTime)
 void AAsaiMakiCamera::CameraThreeSixtyRound(float blendTime)
 {
 	NewDirection = CameraCombat->GetActorLocation();
+	NewRotation = CameraCombat->GetActorRotation();
+	
+	float elapsedTime = GetGameTimeSinceCreation();
+	float pitchValue = FMath::Cos(elapsedTime);
+	float rollValue = FMath::Sin(elapsedTime);
+	
+	NewRotation = FRotator(pitchValue, 0.0f, rollValue);
+	CameraCombat->SetActorRotation(NewRotation);
 
-	//NewDirection.X -= 10.0f * 10.0f * DeltaTime;
-	CameraCombat->SetActorLocation(NewDirection);
+	// Blend smoothly to camera two
+	OurPlayer->SetViewTargetWithBlend(CameraCombat, blendTime);
 }
 
 // Called when the game starts or when spawned
