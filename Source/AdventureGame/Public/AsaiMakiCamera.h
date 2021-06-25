@@ -16,7 +16,7 @@ class ADVENTUREGAME_API AAsaiMakiCamera : public AActor
 	FVector NewDirection;
 
 	UPROPERTY(VisibleAnywhere)
-	FRotator NewRotation;
+	FRotator CameraRotation;
 
 	APlayerController* OurPlayer;
 
@@ -26,10 +26,22 @@ class ADVENTUREGAME_API AAsaiMakiCamera : public AActor
 public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	AActor* CameraOne;
+	AActor* CameraMain;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	AActor* CameraCombat;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	AActor* Target;
+
+	UPROPERTY(VisibleAnywhere)
+	FVector PositionFromTarget;
+
+	UPROPERTY(EditAnywhere)
+	FVector PositionAroundTarget;
+
+	UPROPERTY(EditAnywhere)
+	float scaleDistance = 1.0f;
 	
 	// Sets default values for this actor's properties
 	AAsaiMakiCamera();

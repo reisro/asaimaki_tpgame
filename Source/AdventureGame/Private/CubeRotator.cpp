@@ -26,12 +26,15 @@ void ACubeRotator::Tick(float DeltaTime)
 	float elapsedTime = GetGameTimeSinceCreation();
 	float pitchValue = FMath::Cos(elapsedTime);
 	float rollValue = FMath::Sin(elapsedTime);
+
+	PositionFromTarget = Target->GetActorLocation()-FVector::ForwardVector*250.0f;
+	PositionAroundTarget = FVector(pitchValue*scale+Target->GetActorLocation().X, rollValue*scale+Target->GetActorLocation().Y, GetActorLocation().Z);
+	
 	float YawValue= (Target->GetActorLocation()-GetActorLocation()).Rotation().Yaw;
 
-	NewDirection = Target->GetActorLocation()-FVector::ForwardVector*250.0f;//+FVector(pitchValue*scale, rollValue*scale, GetActorLocation().Z);
 	NewRotation = FRotator(.0f, YawValue, .0f);
 
-	SetActorLocation(NewDirection);
+	SetActorLocation(PositionAroundTarget);
 	SetActorRotation(NewRotation);
 }
 

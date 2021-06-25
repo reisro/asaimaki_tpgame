@@ -17,8 +17,11 @@ public:
 	float scale = 1.0f;
 	
 	UPROPERTY(VisibleAnywhere)
-	FVector NewDirection;
+	FVector PositionAroundTarget;
 
+	UPROPERTY(VisibleAnywhere)
+	FVector PositionFromTarget;
+	
 	UPROPERTY(VisibleAnywhere)
 	FRotator NewRotation;
 
