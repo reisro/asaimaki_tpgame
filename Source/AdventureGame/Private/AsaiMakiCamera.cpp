@@ -23,7 +23,7 @@ void AAsaiMakiCamera::CameraCloseUp(float blendTime)
 
 void AAsaiMakiCamera::CameraThreeSixtyRound(float blendTime)
 {
-	float elapsedTime = GetGameTimeSinceCreation()/3.0f;
+	float elapsedTime = GetGameTimeSinceCreation()-3.0f;
 	float pitchValue = FMath::Cos(elapsedTime);
 	float rollValue = FMath::Sin(elapsedTime);
 	
