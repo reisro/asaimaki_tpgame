@@ -50,7 +50,10 @@ public:
 	void CameraCloseUp(float blendTime);
 
 	UFUNCTION(BlueprintCallable)
-    void CameraThreeSixtyRound(float blendTime);
+    void CameraThreeSixtyRound(float elapsedTime, float blendTime);
+	
+	UFUNCTION(BlueprintCallable)
+    void CameraFollowPoints(FVector point, FVector direction, float blendTime);
 
 protected:
 	// Called when the game starts or when spawned

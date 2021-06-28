@@ -21,22 +21,36 @@ void AAsaiMakiCamera::CameraCloseUp(float blendTime)
 	}
 }
 
-void AAsaiMakiCamera::CameraThreeSixtyRound(float blendTime)
+void AAsaiMakiCamera::CameraThreeSixtyRound(float elapsedTime, float blendTime)
 {
-	float elapsedTime = GetGameTimeSinceCreation()-3.0f;
-	float pitchValue = FMath::Cos(elapsedTime);
-	float rollValue = FMath::Sin(elapsedTime);
+	float elapsedTimeCameraActive = elapsedTime-GetGameTimeSinceCreation();
+
+	elapsedTimeCameraActive < .0f ? elapsedTimeCameraActive *= -1.0f: elapsedTimeCameraActive *= 1.0f;
+
+	UE_LOG(LogTemp, Warning, TEXT("%f"), elapsedTimeCameraActive);
+	
+	float pitchValue = FMath::Cos(elapsedTimeCameraActive);
+	float rollValue = FMath::Sin(elapsedTimeCameraActive);
 	
 	PositionFromTarget = Target->GetActorLocation()-FVector::ForwardVector*250.0f;
 	PositionAroundTarget = FVector(pitchValue*scaleDistance+Target->GetActorLocation().X,
 		rollValue*scaleDistance+Target->GetActorLocation().Y, CameraCombat->GetActorLocation().Z);
 
-	float YawValue= (Target->GetActorLocation()-CameraCombat->GetActorLocation()).Rotation().Yaw;
+	float YawValue = (Target->GetActorLocation()-CameraCombat->GetActorLocation()).Rotation().Yaw;
 
 	CameraRotation = FRotator(.0f, YawValue, .0f);
 	
 	CameraCombat->SetActorLocationAndRotation(PositionAroundTarget, CameraRotation);
 
+	// Blend smoothly to camera two
+	OurPlayer->SetViewTargetWithBlend(CameraCombat, blendTime);
+}
+
+void AAsaiMakiCamera::CameraFollowPoints(FVector point, FVector direction, float blendTime)
+{
+	CameraCombat->SetActorLocation(point);
+	CameraCombat->SetActorRotation((direction-point).Rotation());
+	
 	// Blend smoothly to camera two
 	OurPlayer->SetViewTargetWithBlend(CameraCombat, blendTime);
 }
