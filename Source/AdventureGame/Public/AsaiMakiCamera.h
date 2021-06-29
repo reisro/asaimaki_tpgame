@@ -40,6 +40,8 @@ public:
 	UPROPERTY(EditAnywhere)
 	FVector PositionAroundTarget;
 
+	FTransform FTTranslation;
+
 	UPROPERTY(EditAnywhere)
 	float scaleDistance = 1.0f;
 	
@@ -53,7 +55,7 @@ public:
     void CameraThreeSixtyRound(float elapsedTime, float blendTime);
 	
 	UFUNCTION(BlueprintCallable)
-    void CameraFollowPoints(FVector point, FVector direction, float blendTime);
+    void CameraFollowPoints(FVector point, FVector direction, float deltaTime, float blendTime);
 
 protected:
 	// Called when the game starts or when spawned
