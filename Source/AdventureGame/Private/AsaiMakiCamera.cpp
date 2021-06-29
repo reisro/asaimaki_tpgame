@@ -48,7 +48,11 @@ void AAsaiMakiCamera::CameraThreeSixtyRound(float elapsedTime, float blendTime)
 
 void AAsaiMakiCamera::CameraFollowPoints(FVector point, FVector direction, float blendTime)
 {
-	CameraCombat->SetActorLocation(point);
+	FVector moveCamera = CameraCombat->GetActorLocation() + (direction-point);
+	float target = moveCamera.GetSafeNormal().X;
+	float speed = 5.0f;
+
+	CameraCombat->SetActorLocation(FVector(CameraCombat->GetActorLocation().ForwardVector.X+target,CameraCombat->GetActorLocation().Y, CameraCombat->GetActorLocation().Z));
 	CameraCombat->SetActorRotation((direction-point).Rotation());
 	
 	// Blend smoothly to camera two
