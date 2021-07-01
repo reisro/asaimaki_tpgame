@@ -30,6 +30,8 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	FVector TargetPosition;
+
+	FTransform FTTranslation;
 	
 	// Sets default values for this actor's properties
 	ACubeRotator();
@@ -41,5 +43,7 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	void FollowWayPoints(float deltaTime);
 
 };

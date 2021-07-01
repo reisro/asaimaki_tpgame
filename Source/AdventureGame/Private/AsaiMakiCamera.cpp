@@ -48,19 +48,22 @@ void AAsaiMakiCamera::CameraThreeSixtyRound(float elapsedTime, float blendTime)
 
 void AAsaiMakiCamera::CameraFollowPoints(FVector point, FVector direction, float deltaTime, float blendTime)
 {
-	FVector moveCamera = CameraCombat->GetActorLocation() + (direction-point);
-	float moveForward = moveCamera.X;
+	if ( distanceCameraFromTarget > 0.1f)
+	{
+		FVector moveCamera = direction-CameraCombat->GetActorLocation();
 		
-	UE_LOG(LogTemp, Warning, TEXT("%f"), GetGameTimeSinceCreation());
-	UE_LOG(LogTemp, Warning, TEXT("CameraCombat position: (%f,%f,%f)"), CameraCombat->GetActorLocation().X, CameraCombat->GetActorLocation().Y, CameraCombat->GetActorLocation().Z);
+		UE_LOG(LogTemp, Warning, TEXT("CameraCombat position: (%f,%f,%f)"), CameraCombat->GetActorLocation().X, CameraCombat->GetActorLocation().Y, CameraCombat->GetActorLocation().Z);
 
-	FTTranslation.SetTranslation(FVector(moveCamera.GetSafeNormal().X * 20.0f * GetGameTimeSinceCreation() * deltaTime,0.0f,0.0f));
+		FTTranslation.SetTranslation(FVector(CameraCombat->GetActorLocation() + moveCamera.GetSafeNormal() * 20.0f * deltaTime));
 
-	CameraCombat->SetActorTransform(FTTranslation);
-	//CameraCombat->SetActorRotation((direction-point).Rotation());
+		CameraCombat->SetActorTransform(FTTranslation);
+		CameraCombat->SetActorRotation((Target->GetActorLocation()-CameraCombat->GetActorLocation()).Rotation());
 	
-	// Blend smoothly to camera two
-	OurPlayer->SetViewTargetWithBlend(CameraCombat, blendTime);
+		// Blend smoothly to camera two
+		OurPlayer->SetViewTargetWithBlend(CameraCombat, blendTime);
+
+		distanceCameraFromTarget = FVector::Distance(CameraCombat->GetActorLocation(), direction);
+	}
 }
 
 // Called when the game starts or when spawned

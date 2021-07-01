@@ -44,6 +44,9 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	float scaleDistance = 1.0f;
+
+	UPROPERTY(VisibleAnywhere)
+	float distanceCameraFromTarget;
 	
 	// Sets default values for this actor's properties
 	AAsaiMakiCamera();

@@ -23,7 +23,9 @@ void ACubeRotator::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	float elapsedTime = GetGameTimeSinceCreation();
+	FollowWayPoints(DeltaTime);
+
+	/*float elapsedTime = GetGameTimeSinceCreation();
 	float pitchValue = FMath::Cos(elapsedTime);
 	float rollValue = FMath::Sin(elapsedTime);
 
@@ -35,6 +37,22 @@ void ACubeRotator::Tick(float DeltaTime)
 	NewRotation = FRotator(.0f, YawValue, .0f);
 
 	SetActorLocation(PositionAroundTarget);
-	SetActorRotation(NewRotation);
+	SetActorRotation(NewRotation);*/
+}
+
+void ACubeRotator::FollowWayPoints(float deltaTime)
+{
+	if (FVector(Target->GetActorLocation() - GetActorLocation()).Size() > 0.1f)
+	{
+		FVector moveCube = Target->GetActorLocation() - GetActorLocation();
+		
+		UE_LOG(LogTemp, Warning, TEXT("%f"), GetGameTimeSinceCreation());
+		UE_LOG(LogTemp, Warning, TEXT("CameraCombat position: (%f,%f,%f)"), Target->GetActorLocation().X, Target->GetActorLocation().Y, Target->GetActorLocation().Z);
+
+		FTTranslation.SetTranslation(FVector(GetActorLocation()+moveCube.GetSafeNormal()*20.0f*deltaTime));
+
+		this->SetActorTransform(FTTranslation);
+		this->SetActorRotation((Target->GetActorLocation() - GetActorLocation()).Rotation());
+	}
 }
 
