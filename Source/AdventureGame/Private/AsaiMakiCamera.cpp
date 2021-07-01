@@ -48,21 +48,21 @@ void AAsaiMakiCamera::CameraThreeSixtyRound(float elapsedTime, float blendTime)
 
 void AAsaiMakiCamera::CameraFollowPoints(FVector point, FVector direction, float deltaTime, float blendTime)
 {
-	if ( distanceCameraFromTarget > 0.1f)
+	distanceCameraFromTarget = (Target->GetActorLocation()-CameraCombat->GetActorLocation()).Size();
+	
+	if ( distanceCameraFromTarget > 0.01f)
 	{
-		FVector moveCamera = direction-CameraCombat->GetActorLocation();
+		FVector moveCamera = Target->GetActorLocation()-CameraCombat->GetActorLocation();
 		
 		UE_LOG(LogTemp, Warning, TEXT("CameraCombat position: (%f,%f,%f)"), CameraCombat->GetActorLocation().X, CameraCombat->GetActorLocation().Y, CameraCombat->GetActorLocation().Z);
 
-		FTTranslation.SetTranslation(FVector(CameraCombat->GetActorLocation() + moveCamera.GetSafeNormal() * 20.0f * deltaTime));
+		FTTranslation.SetTranslation(FVector(CameraCombat->GetActorLocation() + moveCamera.GetSafeNormal() * 60.0f * deltaTime));
 
 		CameraCombat->SetActorTransform(FTTranslation);
-		CameraCombat->SetActorRotation((Target->GetActorLocation()-CameraCombat->GetActorLocation()).Rotation());
+		CameraCombat->SetActorRotation((DirectionTarget->GetActorLocation()-Target->GetActorLocation()).Rotation());
 	
 		// Blend smoothly to camera two
 		OurPlayer->SetViewTargetWithBlend(CameraCombat, blendTime);
-
-		distanceCameraFromTarget = FVector::Distance(CameraCombat->GetActorLocation(), direction);
 	}
 }
 

@@ -33,6 +33,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	AActor* Target;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	AActor* DirectionTarget;
 
 	UPROPERTY(VisibleAnywhere)
 	FVector PositionFromTarget;
