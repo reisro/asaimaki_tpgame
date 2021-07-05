@@ -3,6 +3,8 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "CameraSystemDataIO.h"
+#include "CameraSystemDataIO.h"
 #include "GameFramework/Actor.h"
 #include "Kismet/GameplayStatics.h"
 #include "AsaiMakiCamera.generated.h"
@@ -24,6 +26,8 @@ class ADVENTUREGAME_API AAsaiMakiCamera : public AActor
 	float TimeToChangeCamera;
 	
 public:
+
+	CameraSystemDataIO* cameraSystemDataIO;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	AActor* CameraMain;
@@ -62,6 +66,9 @@ public:
 	
 	UFUNCTION(BlueprintCallable)
     void CameraFollowPoints(FVector point, FVector direction, float deltaTime, float blendTime);
+
+	UFUNCTION(BlueprintCallable)
+	void ShowProjectDirectory();
 
 protected:
 	// Called when the game starts or when spawned

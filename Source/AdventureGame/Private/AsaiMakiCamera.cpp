@@ -8,6 +8,8 @@ AAsaiMakiCamera::AAsaiMakiCamera()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	cameraSystemDataIO = new CameraSystemDataIO();
 }
 
 void AAsaiMakiCamera::CameraCloseUp(float blendTime)
@@ -64,6 +66,11 @@ void AAsaiMakiCamera::CameraFollowPoints(FVector point, FVector direction, float
 		// Blend smoothly to camera two
 		OurPlayer->SetViewTargetWithBlend(CameraCombat, blendTime);
 	}
+}
+
+void AAsaiMakiCamera::ShowProjectDirectory()
+{
+	UE_LOG(LogTemp, Warning, TEXT("FilePaths: ProjectDirectory: %s"), *cameraSystemDataIO->GetProjectDirectory());
 }
 
 // Called when the game starts or when spawned
