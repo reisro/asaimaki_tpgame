@@ -68,9 +68,63 @@ void AAsaiMakiCamera::CameraFollowPoints(FVector point, FVector direction, float
 	}
 }
 
+void AAsaiMakiCamera::CameraFollowTransform(TMap<FVector, FRotator> cameraTransform, int keyframes, float blendTime, float deltaTime, bool followThrough)
+{
+	// Blend smoothly to camera combat
+	OurPlayer->SetViewTargetWithBlend(CameraCombat, blendTime);
+	
+	// Feed the class map with input map
+	TransformPaths = cameraTransform;
+
+	// Get the size of the map
+	keyframes = cameraTransform.Num();
+
+	int followThroughId = 0;
+
+	// translate the camera through all points matching the camera transforms
+	for (auto& Transform: TransformPaths)
+	{
+		FollowThroughStart.Add(Transform.Key);
+		RotationThroughStart.Add(Transform.Value);
+	}
+
+	for (size_t i=0; i<FollowThroughStart.Num()-1; i++)
+		FollowThroughEnd.Add(FollowThroughStart[i+1]);
+
+	for (size_t i=0; i<RotationThroughStart.Num()-1; i++)
+		RotationThroughEnd.Add(RotationThroughStart[i+1]);
+	
+	float distanceFromTarget = 0.0f;
+
+	while (!followThrough)
+	{
+		CameraCombat->SetActorLocationAndRotation(FollowThroughStart[followThroughId], RotationThroughStart[followThroughId]);
+		
+		float distanceFromTarget = (FollowThroughEnd[followThroughId]-FollowThroughStart[followThroughId]).Size();
+
+		if (distanceFromTarget < 0.1f)
+		{
+			FVector difference = FollowThroughEnd[followThroughId]-FollowThroughStart[followThroughId];
+			FVector moveCamera = CameraCombat->GetActorLocation() + difference;
+
+			FTTranslation.SetTranslation(moveCamera.GetSafeNormal() * 20.0f * deltaTime);
+		}
+		
+		if (followThrough < TransformPaths.Num())
+			followThroughId++;
+		else
+			followThrough = true;
+	}
+}
+
 void AAsaiMakiCamera::ShowProjectDirectory()
 {
 	UE_LOG(LogTemp, Warning, TEXT("FilePaths: ProjectDirectory: %s"), *cameraSystemDataIO->GetProjectDirectory());
+}
+
+void AAsaiMakiCamera::CreateCameraTransformDataFile()
+{
+	cameraSystemDataIO->CreateFile();
 }
 
 // Called when the game starts or when spawned

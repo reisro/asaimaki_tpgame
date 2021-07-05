@@ -17,6 +17,8 @@ public:
 	
 	~CameraSystemDataIO();
 
+	void CreateFile();
+	
 	FString GetProjectDirectory();
 
 private:

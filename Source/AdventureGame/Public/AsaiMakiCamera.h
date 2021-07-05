@@ -42,6 +42,21 @@ public:
 	AActor* DirectionTarget;
 
 	UPROPERTY(VisibleAnywhere)
+	TMap<FVector,FRotator> TransformPaths;
+
+	UPROPERTY(VisibleAnywhere)
+	TArray<FVector> FollowThroughStart;
+	
+	UPROPERTY(VisibleAnywhere)
+	TArray<FVector> FollowThroughEnd;
+
+	UPROPERTY(VisibleAnywhere)
+	TArray<FRotator> RotationThroughStart;
+	
+	UPROPERTY(VisibleAnywhere)
+	TArray<FRotator> RotationThroughEnd;
+
+	UPROPERTY(VisibleAnywhere)
 	FVector PositionFromTarget;
 
 	UPROPERTY(EditAnywhere)
@@ -68,7 +83,13 @@ public:
     void CameraFollowPoints(FVector point, FVector direction, float deltaTime, float blendTime);
 
 	UFUNCTION(BlueprintCallable)
+	void CameraFollowTransform(TMap<FVector, FRotator> cameraTransform, int keyframes, float blendTime, float deltaTime, bool followThrough);
+
+	UFUNCTION(BlueprintCallable)
 	void ShowProjectDirectory();
+
+	UFUNCTION(BlueprintCallable)
+    void CreateCameraTransformDataFile();
 
 protected:
 	// Called when the game starts or when spawned
