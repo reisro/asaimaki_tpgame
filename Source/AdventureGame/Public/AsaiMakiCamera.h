@@ -57,6 +57,9 @@ public:
 	TArray<FRotator> RotationThroughEnd;
 
 	UPROPERTY(VisibleAnywhere)
+	FVector TargetRefPosition;
+	
+	UPROPERTY(VisibleAnywhere)
 	FVector PositionFromTarget;
 
 	UPROPERTY(EditAnywhere)

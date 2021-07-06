@@ -96,24 +96,28 @@ void AAsaiMakiCamera::CameraFollowTransform(TMap<FVector, FRotator> cameraTransf
 	
 	float distanceFromTarget = 0.0f;
 
+	FVector finalLocation = TargetRefPosition+FollowThroughStart[followThroughId];
+
 	while (!followThrough)
 	{
-		CameraCombat->SetActorLocationAndRotation(FollowThroughStart[followThroughId], RotationThroughStart[followThroughId]);
+		CameraCombat->SetActorLocationAndRotation(finalLocation, RotationThroughStart[followThroughId]);
 		
-		float distanceFromTarget = (FollowThroughEnd[followThroughId]-FollowThroughStart[followThroughId]).Size();
+		/*distanceFromTarget = (FollowThroughEnd[followThroughId]-FollowThroughStart[followThroughId]).Size();
 
-		if (distanceFromTarget < 0.1f)
+		if (distanceFromTarget > 0.1f)
 		{
 			FVector difference = FollowThroughEnd[followThroughId]-FollowThroughStart[followThroughId];
 			FVector moveCamera = CameraCombat->GetActorLocation() + difference;
 
 			FTTranslation.SetTranslation(moveCamera.GetSafeNormal() * 20.0f * deltaTime);
-		}
+			FTTranslation.SetRotation(FRotator(RotationThroughEnd[followThroughId+1]).Quaternion());
+			CameraCombat->SetActorRotation(FMath::Lerp(CameraCombat->GetActorRotation(), difference.Rotation(),0.2f));
+		}*/
 		
-		if (followThrough < TransformPaths.Num())
-			followThroughId++;
-		else
-			followThrough = true;
+		//if (followThroughId < TransformPaths.Num())
+			//followThroughId++;
+		//else
+		followThrough = true;
 	}
 }
 
@@ -134,6 +138,8 @@ void AAsaiMakiCamera::BeginPlay()
 	
 	// Find the actor that handles control for the local player
     OurPlayer = UGameplayStatics::GetPlayerController(this,0);
+
+	TargetRefPosition = Target->GetActorLocation();
 }
 
 // Called every frame
