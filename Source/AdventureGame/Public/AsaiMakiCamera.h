@@ -67,11 +67,17 @@ public:
 
 	FTransform FTTranslation;
 
+	UPROPERTY(VisibleAnywhere)
+	int followThroughId;
+
 	UPROPERTY(EditAnywhere)
 	float scaleDistance = 1.0f;
 
 	UPROPERTY(VisibleAnywhere)
 	float distanceCameraFromTarget;
+
+	UPROPERTY(VisibleAnywhere)
+	bool advanceKeyframe;
 	
 	// Sets default values for this actor's properties
 	AAsaiMakiCamera();
@@ -84,6 +90,9 @@ public:
 	
 	UFUNCTION(BlueprintCallable)
     void CameraFollowPoints(FVector point, FVector direction, float deltaTime, float blendTime);
+
+	UFUNCTION(BlueprintCallable)
+	void FeedCameraTransform(TMap<FVector, FRotator> cameraTransform);
 
 	UFUNCTION(BlueprintCallable)
 	void CameraFollowTransform(TMap<FVector, FRotator> cameraTransform, int keyframes, float blendTime, float deltaTime, bool followThrough);
