@@ -37,6 +37,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	AActor* Target;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	AActor* Dummy;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	AActor* DirectionTarget;
@@ -89,7 +92,7 @@ public:
     void CameraThreeSixtyRound(float elapsedTime, float blendTime);
 	
 	UFUNCTION(BlueprintCallable)
-    void CameraFollowPoints(FVector point, FVector direction, float deltaTime, float blendTime);
+    void CameraFollowPoints(FVector start, FVector end, float deltaTime, float blendTime);
 
 	UFUNCTION(BlueprintCallable)
 	void FeedCameraTransform(TMap<FVector, FRotator> cameraTransform);
