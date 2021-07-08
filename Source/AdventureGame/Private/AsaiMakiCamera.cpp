@@ -50,19 +50,21 @@ void AAsaiMakiCamera::CameraThreeSixtyRound(float elapsedTime, float blendTime)
 
 void AAsaiMakiCamera::CameraFollowPoints(FVector start, FVector end, float deltaTime, float blendTime)
 {
-	distanceCameraFromTarget = (FollowThroughEnd[followThroughId]-FollowThroughStart[followThroughId]).Size();
+	distanceCameraFromTarget = (FollowThroughEnd[followThroughId]-Dummy->GetActorLocation()).Size();
 	
-	if ( distanceCameraFromTarget > 0.01f)
+	if ( distanceCameraFromTarget > 0.1f)
 	{
 		FVector moveCamera = FollowThroughEnd[followThroughId]-FollowThroughStart[followThroughId];
 		
-		FTTranslation.SetTranslation(FVector(Dummy->GetActorLocation() + moveCamera.GetSafeNormal() * 60.0f * deltaTime));
+		//FTTranslation.SetTranslation(FVector(Dummy->GetActorLocation() + moveCamera.GetSafeNormal() * 60.0f * deltaTime));
+		FTTranslation.SetTranslation(FMath::Lerp(Dummy->GetActorLocation(), Dummy->GetActorLocation() + moveCamera.GetSafeNormal(), 0.8f));
+		FTTranslation.SetScale3D(Dummy->GetActorScale3D());
 
 		Dummy->SetActorTransform(FTTranslation);
 		Dummy->SetActorRotation((end-Dummy->GetActorLocation()).Rotation());
 	
 		// Blend smoothly to camera two
-		OurPlayer->SetViewTargetWithBlend(CameraCombat, blendTime);
+		//OurPlayer->SetViewTargetWithBlend(CameraCombat, blendTime);
 	}
 }
 
