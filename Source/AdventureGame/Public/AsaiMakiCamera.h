@@ -4,8 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "CameraSystemDataIO.h"
-#include "CameraSystemDataIO.h"
 #include "GameFramework/Actor.h"
+#include "CameraTimeline.h"
 #include "Kismet/GameplayStatics.h"
 #include "AsaiMakiCamera.generated.h"
 
@@ -28,6 +28,9 @@ class ADVENTUREGAME_API AAsaiMakiCamera : public AActor
 public:
 
 	CameraSystemDataIO* cameraSystemDataIO;
+
+	UPROPERTY(EditAnywhere)
+	ACameraTimeline* cameraTimeline;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	AActor* CameraMain;
@@ -99,6 +102,9 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void CameraFollowTransform(TMap<FVector, FRotator> cameraTransform, int keyframes, float blendTime, float deltaTime, bool followThrough);
+
+	UFUNCTION()
+	void PlayTimelineVector();
 
 	UFUNCTION(BlueprintCallable)
 	void ShowProjectDirectory();
