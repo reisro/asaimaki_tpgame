@@ -50,7 +50,17 @@ void AAsaiMakiCamera::CameraThreeSixtyRound(float elapsedTime, float blendTime)
 
 void AAsaiMakiCamera::CameraFollowPoints(FVector start, FVector end, float deltaTime, float blendTime)
 {
-	PlayTimelineVector();
+	if(!cameraTimeline->curveTimeline.IsPlaying())
+		PlayTimelineVector();
+
+	// Blend smoothly to camera two
+	OurPlayer->SetViewTargetWithBlend(CameraCombat, blendTime);
+
+	if(cameraTimeline->ReachedEndPoint(FollowThroughStart[followThroughId],FollowThroughEnd[followThroughId],
+		RotationThroughEnd[followThroughId]))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Reached end point"));
+	}
 	
 	/*distanceCameraFromTarget = (FollowThroughEnd[followThroughId]-Dummy->GetActorLocation()).Size();
 
@@ -65,8 +75,7 @@ void AAsaiMakiCamera::CameraFollowPoints(FVector start, FVector end, float delta
 		Dummy->SetActorTransform(FTTranslation);
 		Dummy->SetActorRotation((end-Dummy->GetActorLocation()).Rotation());
 	
-		// Blend smoothly to camera two
-		//OurPlayer->SetViewTargetWithBlend(CameraCombat, blendTime);
+		
 	}*/
 }
 
