@@ -56,8 +56,8 @@ void AAsaiMakiCamera::CameraFollowPoints(FVector start, FVector end, float delta
 	// Blend smoothly to camera two
 	OurPlayer->SetViewTargetWithBlend(CameraCombat, blendTime);
 
-	if(cameraTimeline->ReachedEndPoint(FollowThroughStart[followThroughId],FollowThroughEnd[followThroughId],
-		RotationThroughEnd[followThroughId]))
+	if(cameraTimeline->ReachedEndPoint(FollowThroughStart[followThroughId],FollowThroughEnd[followThroughId]
+		,RotationThroughStart[followThroughId], RotationThroughEnd[followThroughId]))
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Reached end point"));
 	}

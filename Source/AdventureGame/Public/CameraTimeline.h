@@ -31,7 +31,7 @@ public:
 	ACameraTimeline();
 
 	UFUNCTION(BlueprintCallable)
-	bool ReachedEndPoint(FVector start, FVector end, FRotator rotation);
+	bool ReachedEndPoint(FVector start, FVector end, FRotator startRotation, FRotator endRotation);
 
 protected:
 	

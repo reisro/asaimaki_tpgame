@@ -12,17 +12,19 @@ ACameraTimeline::ACameraTimeline()
 	PrimaryActorTick.bCanEverTick = true;
 }
 
-bool ACameraTimeline::ReachedEndPoint(FVector start, FVector end, FRotator rotation)
+bool ACameraTimeline::ReachedEndPoint(FVector start, FVector end, FRotator startRotation, FRotator endRotation)
 {
 	UE_LOG(LogTemp, Warning, TEXT("Playback Position: %f"), curveTimeline.GetPlaybackPosition());
 	UE_LOG(LogTemp, Warning, TEXT("Playback Position: %f"), curveTimeline.GetTimelineLength());
+
+	//Target->SetActorRotation(start.Rotation());
 	
 	if (curveTimeline.GetPlaybackPosition() < curveTimeline.GetTimelineLength())
 	{
 		FVector FinalLocation = FMath::Lerp(start, end, curveTimeline.GetPlaybackPosition()/curveTimeline.GetTimelineLength());
 	
 		Target->SetActorLocation(FinalLocation);
-		Target->SetActorRotation(FMath::Lerp(start.Rotation(),rotation,curveTimeline.GetPlaybackPosition()/curveTimeline.GetTimelineLength()));
+		Target->SetActorRotation(FMath::Lerp(startRotation,endRotation,curveTimeline.GetPlaybackPosition()/curveTimeline.GetTimelineLength()));
 
 		return false;
 	}
