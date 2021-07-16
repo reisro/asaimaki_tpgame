@@ -3,6 +3,8 @@
 
 #include "AsaiMakiCamera.h"
 
+#include "../../../../../Programs/Unreal Engine/UE_4.26/Engine/Shaders/Private/HairStrands/HairStrandsAABBCommon.ush"
+
 // Sets default values
 AAsaiMakiCamera::AAsaiMakiCamera()
 {
@@ -96,6 +98,17 @@ void AAsaiMakiCamera::FeedCameraTransform(TMap<FVector, FRotator> cameraTransfor
 
 	for (size_t i=0; i<RotationThroughStart.Num()-1; i++)
 		RotationThroughEnd.Add(RotationThroughStart[i+1]);
+}
+
+void AAsaiMakiCamera::UpdateCameraTransform(TMap<FVector, FRotator> cameraTransform)
+{
+	/*auto& transform = cameraTransform;
+	transform.KeySort()
+	for (size_t i=0; i<FollowThroughStart.Num()-1; i++)
+	{
+		FollowThroughStart[i] = cameraTransform.FindKey(cameraTransform.Contains())+FollowThroughStart[i];
+		FollowThroughEnd[i] = TargetLocation+FollowThroughEnd[i];
+	}*/
 }
 
 void AAsaiMakiCamera::CameraFollowTransform(TMap<FVector, FRotator> cameraTransform, int keyframes, float blendTime, float deltaTime, bool followThrough)

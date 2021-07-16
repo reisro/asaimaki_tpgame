@@ -101,6 +101,9 @@ public:
 	void FeedCameraTransform(TMap<FVector, FRotator> cameraTransform);
 
 	UFUNCTION(BlueprintCallable)
+	void UpdateCameraTransform(TMap<FVector, FRotator> cameraTransform);
+
+	UFUNCTION(BlueprintCallable)
 	void CameraFollowTransform(TMap<FVector, FRotator> cameraTransform, int keyframes, float blendTime, float deltaTime, bool followThrough);
 
 	UFUNCTION()
