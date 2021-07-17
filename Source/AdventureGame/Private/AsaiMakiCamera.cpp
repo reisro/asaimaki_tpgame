@@ -3,8 +3,6 @@
 
 #include "AsaiMakiCamera.h"
 
-#include "../../../../../Programs/Unreal Engine/UE_4.26/Engine/Shaders/Private/HairStrands/HairStrandsAABBCommon.ush"
-
 // Sets default values
 AAsaiMakiCamera::AAsaiMakiCamera()
 {
@@ -50,7 +48,7 @@ void AAsaiMakiCamera::CameraThreeSixtyRound(float elapsedTime, float blendTime)
 	OurPlayer->SetViewTargetWithBlend(CameraCombat, blendTime);
 }
 
-void AAsaiMakiCamera::CameraFollowPoints(FVector start, FVector end, float deltaTime, float blendTime)
+void AAsaiMakiCamera::CameraFollowPoints(float deltaTime, float blendTime)
 {
 	if(!cameraTimeline->curveTimeline.IsPlaying())
 		PlayTimelineVector();
@@ -62,6 +60,10 @@ void AAsaiMakiCamera::CameraFollowPoints(FVector start, FVector end, float delta
 		,RotationThroughStart[followThroughId], RotationThroughEnd[followThroughId]))
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Reached end point"));
+
+		float blend = 0.0f;
+		
+		OurPlayer->SetViewTarget(CameraMain);
 	}
 	
 	/*distanceCameraFromTarget = (FollowThroughEnd[followThroughId]-Dummy->GetActorLocation()).Size();
@@ -100,15 +102,13 @@ void AAsaiMakiCamera::FeedCameraTransform(TMap<FVector, FRotator> cameraTransfor
 		RotationThroughEnd.Add(RotationThroughStart[i+1]);
 }
 
-void AAsaiMakiCamera::UpdateCameraTransform(TMap<FVector, FRotator> cameraTransform)
+void AAsaiMakiCamera::UpdateCameraTransform(TArray<FVector> CameraRelativePosition)
 {
-	/*auto& transform = cameraTransform;
-	transform.KeySort()
 	for (size_t i=0; i<FollowThroughStart.Num()-1; i++)
 	{
-		FollowThroughStart[i] = cameraTransform.FindKey(cameraTransform.Contains())+FollowThroughStart[i];
-		FollowThroughEnd[i] = TargetLocation+FollowThroughEnd[i];
-	}*/
+		FollowThroughStart[i] = TargetRefPosition+CameraRelativePosition[i];
+		FollowThroughEnd[i] =	TargetRefPosition+CameraRelativePosition[i+1];
+	}
 }
 
 void AAsaiMakiCamera::CameraFollowTransform(TMap<FVector, FRotator> cameraTransform, int keyframes, float blendTime, float deltaTime, bool followThrough)
@@ -175,8 +175,6 @@ void AAsaiMakiCamera::BeginPlay()
 	// Find the actor that handles control for the local player
     OurPlayer = UGameplayStatics::GetPlayerController(this,0);
 
-	TargetRefPosition = Target->GetActorLocation();
-
 	followThroughId = 0;
 }
 
@@ -201,6 +199,8 @@ void AAsaiMakiCamera::Tick(float DeltaTime)
 				//OurPlayer->SetViewTarget(CameraOne);
 			//}
 		}
+
+		TargetRefPosition = Target->GetActorLocation();
 	}
 	
 	Super::Tick(DeltaTime);

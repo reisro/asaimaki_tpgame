@@ -6,7 +6,6 @@
 #include "CameraSystemDataIO.h"
 #include "GameFramework/Actor.h"
 #include "CameraTimeline.h"
-#include "Kismet/GameplayStatics.h"
 #include "AsaiMakiCamera.generated.h"
 
 UCLASS()
@@ -95,13 +94,13 @@ public:
     void CameraThreeSixtyRound(float elapsedTime, float blendTime);
 	
 	UFUNCTION(BlueprintCallable)
-    void CameraFollowPoints(FVector start, FVector end, float deltaTime, float blendTime);
+    void CameraFollowPoints(float deltaTime, float blendTime);
 
 	UFUNCTION(BlueprintCallable)
 	void FeedCameraTransform(TMap<FVector, FRotator> cameraTransform);
 
 	UFUNCTION(BlueprintCallable)
-	void UpdateCameraTransform(TMap<FVector, FRotator> cameraTransform);
+	void UpdateCameraTransform(TArray<FVector> CameraRelativePosition);
 
 	UFUNCTION(BlueprintCallable)
 	void CameraFollowTransform(TMap<FVector, FRotator> cameraTransform, int keyframes, float blendTime, float deltaTime, bool followThrough);
