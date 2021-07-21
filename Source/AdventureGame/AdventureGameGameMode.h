@@ -13,6 +13,10 @@ class AAdventureGameGameMode : public AGameModeBase
 
 public:
 	AAdventureGameGameMode();
+
+	void BeginPlay() override;
+
+	void Tick(float DeltaSeconds) override;
 };
 
 

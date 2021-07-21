@@ -13,3 +13,19 @@ AAdventureGameGameMode::AAdventureGameGameMode()
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
 }
+
+void AAdventureGameGameMode::BeginPlay()
+{
+	//AActor* pawn = Cast<AActor>(DefaultPawnClass->GetDefaultSubobjectByName("DefaultPawn"));
+	//pawn->SetActorLocation(FVector::ZeroVector);
+}
+
+void AAdventureGameGameMode::Tick(float DeltaSeconds)
+{
+	if (HasMatchStarted())
+	{
+		AActor* pawn = Cast<AActor>(DefaultPawnClass->GetDefaultSubobjectByName("DefaultPawn"));
+
+		UE_LOG(LogTemp, Warning, TEXT("Not null"));
+	}
+}
