@@ -77,7 +77,9 @@ void AAsaiMakiNinja::MoveForward(float Value)
     
     		// get forward vector
     		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
-    		AddMovementInput(Direction, Value);
+
+            if (AsaiMakiAnimInstance != nullptr && !AsaiMakiAnimInstance->IsAnyMontagePlaying())
+    		    AddMovementInput(Direction, Value);
     	}
 }
 

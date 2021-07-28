@@ -14,6 +14,10 @@ class ADVENTUREGAME_API AAsaiMakiNinja : public ANinjaCharacter
 {
 	GENERATED_BODY()
 
+	/** Anim Instance */
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Camera, meta = (AllowPrivateAccess = "true"))
+	class UAsaiMakiAnimInstance* AsaiMakiAnimInstance;
+
 	/** Camera boom positioning the camera behind the character */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class USpringArmComponent* CameraBoom;
