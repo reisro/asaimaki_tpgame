@@ -71,5 +71,7 @@ class ADVENTUREGAME_API AAsaiMakiNinja : public ANinjaCharacter
 	void LookUpAtRate(float Rate);
 
 	public:
+		virtual void BeginPlay() override;
+	
 		virtual void Tick(float DeltaTime) override;
 };

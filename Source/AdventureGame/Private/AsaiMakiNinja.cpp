@@ -30,12 +30,6 @@ AAsaiMakiNinja::AAsaiMakiNinja():ANinjaCharacter()
     FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
     FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
     FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
-
-    // Get the Anim Instance attached to this character
-    AsaiMakiAnimInstance = Cast<UAsaiMakiAnimInstance>(this->GetMesh()->GetAnimInstance());
-
-    if (AsaiMakiAnimInstance == nullptr)
-        UE_LOG(LogTemp, Warning, TEXT("Null Ptr Anim Instance"));
 }
 
 void AAsaiMakiNinja::BeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,
@@ -118,10 +112,26 @@ void AAsaiMakiNinja::LookUpAtRate(float Rate)
     AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
 }
 
+void AAsaiMakiNinja::BeginPlay()
+{
+    // Get the Anim Instance attached to this character
+    //AsaiMakiAnimInstance = Cast<UAsaiMakiAnimInstance>(this->GetMesh()->GetAnimInstance());
+
+    UE_LOG(LogTemp, Warning, TEXT("%s"), *this->GetMesh()->GetAnimInstance()->GetName());
+}
+
 void AAsaiMakiNinja::Tick(float DeltaTime)
 {
     if (AsaiMakiAnimInstance != nullptr && !AsaiMakiAnimInstance->IsAnyMontagePlaying())
+    {
+        UE_LOG(LogTemp, Warning, TEXT("Input enabled."));
+
         EnablePlayerInput=true;
+    }
     else
+    {
+        UE_LOG(LogTemp, Warning, TEXT("Input disabled."));
+
         EnablePlayerInput=false;
+    }
 }
