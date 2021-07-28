@@ -36,6 +36,10 @@ class ADVENTUREGAME_API AAsaiMakiNinja : public ANinjaCharacter
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseLookUpRate;
 
+	/** Enable that can receive input commands **/
+	UPROPERTY(VisibleAnywhere)
+	bool EnablePlayerInput;
+
 	// Constructor
 	AAsaiMakiNinja();
 
@@ -65,4 +69,7 @@ class ADVENTUREGAME_API AAsaiMakiNinja : public ANinjaCharacter
 	* @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
 	*/
 	void LookUpAtRate(float Rate);
+
+	public:
+		virtual void Tick(float DeltaTime) override;
 };

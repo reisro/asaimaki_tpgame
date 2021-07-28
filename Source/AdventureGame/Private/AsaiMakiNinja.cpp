@@ -30,6 +30,12 @@ AAsaiMakiNinja::AAsaiMakiNinja():ANinjaCharacter()
     FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
     FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
     FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
+
+    // Get the Anim Instance attached to this character
+    AsaiMakiAnimInstance = Cast<UAsaiMakiAnimInstance>(this->GetMesh()->GetAnimInstance());
+
+    if (AsaiMakiAnimInstance == nullptr)
+        UE_LOG(LogTemp, Warning, TEXT("Null Ptr Anim Instance"));
 }
 
 void AAsaiMakiNinja::BeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,
@@ -77,8 +83,8 @@ void AAsaiMakiNinja::MoveForward(float Value)
     
     		// get forward vector
     		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
-
-            if (AsaiMakiAnimInstance != nullptr && !AsaiMakiAnimInstance->IsAnyMontagePlaying())
+        
+            if (EnablePlayerInput)
     		    AddMovementInput(Direction, Value);
     	}
 }
@@ -94,7 +100,9 @@ void AAsaiMakiNinja::MoveRight(float Value)
         // get right vector 
         const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
         // add movement in that direction
-        AddMovementInput(Direction, Value);
+
+        if (EnablePlayerInput)
+            AddMovementInput(Direction, Value);
     }
 }
 
@@ -108,4 +116,12 @@ void AAsaiMakiNinja::LookUpAtRate(float Rate)
 {
     // calculate delta for this frame from the rate information
     AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
+}
+
+void AAsaiMakiNinja::Tick(float DeltaTime)
+{
+    if (AsaiMakiAnimInstance != nullptr && !AsaiMakiAnimInstance->IsAnyMontagePlaying())
+        EnablePlayerInput=true;
+    else
+        EnablePlayerInput=false;
 }

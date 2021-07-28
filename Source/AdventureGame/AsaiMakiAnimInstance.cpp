@@ -8,6 +8,7 @@
 
 UAsaiMakiAnimInstance::UAsaiMakiAnimInstance()
 {
+	UE_LOG(LogTemp, Warning, TEXT("Created Asai Maki Anim Instance"));
 }
 
 void UAsaiMakiAnimInstance::NativeInitializeAnimation()
