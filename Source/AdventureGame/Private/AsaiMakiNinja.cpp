@@ -112,26 +112,35 @@ void AAsaiMakiNinja::LookUpAtRate(float Rate)
     AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
 }
 
+void AAsaiMakiNinja::CheckIfAnyMontageIsBeingPlayed()
+{
+    UE_LOG(LogTemp, Warning, TEXT("aaaaaaaaaaaaaaa."));
+    
+    if (AsaiMakiAnimInstance != nullptr)
+    {
+        UE_LOG(LogTemp, Warning, TEXT("Not null."));
+        
+        if (!AsaiMakiAnimInstance->IsAnyMontagePlaying())
+        {
+            UE_LOG(LogTemp, Warning, TEXT("Input enabled."));
+
+            EnablePlayerInput=true;
+        }
+        else
+        {
+            UE_LOG(LogTemp, Warning, TEXT("Input disabled."));
+
+            EnablePlayerInput=false;
+        }
+    }
+    else
+        UE_LOG(LogTemp, Warning, TEXT("Anim null."));
+}
+
 void AAsaiMakiNinja::BeginPlay()
 {
     // Get the Anim Instance attached to this character
     //AsaiMakiAnimInstance = Cast<UAsaiMakiAnimInstance>(this->GetMesh()->GetAnimInstance());
 
     UE_LOG(LogTemp, Warning, TEXT("%s"), *this->GetMesh()->GetAnimInstance()->GetName());
-}
-
-void AAsaiMakiNinja::Tick(float DeltaTime)
-{
-    if (AsaiMakiAnimInstance != nullptr && !AsaiMakiAnimInstance->IsAnyMontagePlaying())
-    {
-        UE_LOG(LogTemp, Warning, TEXT("Input enabled."));
-
-        EnablePlayerInput=true;
-    }
-    else
-    {
-        UE_LOG(LogTemp, Warning, TEXT("Input disabled."));
-
-        EnablePlayerInput=false;
-    }
 }

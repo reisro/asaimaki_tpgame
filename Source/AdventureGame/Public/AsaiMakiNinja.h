@@ -70,8 +70,9 @@ class ADVENTUREGAME_API AAsaiMakiNinja : public ANinjaCharacter
 	*/
 	void LookUpAtRate(float Rate);
 
+	UFUNCTION(BlueprintCallable)
+	void CheckIfAnyMontageIsBeingPlayed();
+
 	public:
 		virtual void BeginPlay() override;
-	
-		virtual void Tick(float DeltaTime) override;
 };

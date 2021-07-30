@@ -66,7 +66,6 @@ void ANinjaCharacter::SetupBodyCollidersName()
 void ANinjaCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 int32 ANinjaCharacter::GetHealth() const
