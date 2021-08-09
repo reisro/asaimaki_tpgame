@@ -1,7 +1,8 @@
-# Asai Maki Project
+# Asai Maki UE4 Project
 
 ![Alt text](https://drive.google.com/uc?export=download&id=1NqHCfcaLeNhMSdncTRHBbCm6HSZAHgGQ)
 
+Asai Maki
 It is a third-person game featuring character combat system mechanics to demonstrate proof of skills using the unreal engine.
 
 ## Installation
