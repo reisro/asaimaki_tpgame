@@ -112,7 +112,24 @@ void AAsaiMakiNinja::LookUpAtRate(float Rate)
     AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
 }
 
-void AAsaiMakiNinja::CheckIfAnyMontageIsBeingPlayed()
+bool AAsaiMakiNinja::CheckIfAnyMontageIsBeingPlayed()
+{
+    return EnablePlayerInput;
+}
+
+void AAsaiMakiNinja::BeginPlay()
+{
+    // Get the Anim Instance attached to this character
+    AsaiMakiAnimInstance = Cast<UAsaiMakiAnimInstance>(this->GetMesh()->GetAnimInstance());
+
+    UE_LOG(LogTemp, Warning, TEXT("%s"), *this->GetMesh()->GetAnimInstance()->GetName());
+    UE_LOG(LogTemp, Warning, TEXT("Hello"));
+
+    OnEnableInput.AddDynamic(this, &AAsaiMakiNinja::LogInParentTick);
+}
+
+// Called every frame
+void AAsaiMakiNinja::LogInParentTick(float DeltaTime)
 {
     UE_LOG(LogTemp, Warning, TEXT("aaaaaaaaaaaaaaa."));
     
@@ -135,12 +152,4 @@ void AAsaiMakiNinja::CheckIfAnyMontageIsBeingPlayed()
     }
     else
         UE_LOG(LogTemp, Warning, TEXT("Anim null."));
-}
-
-void AAsaiMakiNinja::BeginPlay()
-{
-    // Get the Anim Instance attached to this character
-    //AsaiMakiAnimInstance = Cast<UAsaiMakiAnimInstance>(this->GetMesh()->GetAnimInstance());
-
-    UE_LOG(LogTemp, Warning, TEXT("%s"), *this->GetMesh()->GetAnimInstance()->GetName());
 }

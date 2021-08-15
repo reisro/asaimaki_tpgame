@@ -16,6 +16,8 @@
 
 using namespace std;
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FEnableInput, float, DeltaTime);
+
 UCLASS(config=Game)
 class ADVENTUREGAME_API ANinjaCharacter : public ACharacter, public IAbilitySystemInterface
 {
@@ -30,13 +32,11 @@ public:
 	// Sets default values for this character's properties
 	ANinjaCharacter();
 
-	virtual void PossessedBy(AController* NewController) override;
-
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
 	UPROPERTY()
 	FGameplayTagContainer NinjaTag;
+
+	UPROPERTY()
+	FEnableInput OnEnableInput;
 
 	UFUNCTION(BlueprintCallable)
     int32 GetHealth() const;
@@ -60,6 +60,9 @@ public:
 
 	UFUNCTION(BlueprintImplementableEvent)
 	void OnDamaged(float DamageAmount, const FHitResult& HitInfo, const struct FGameplayTagContainer& DamageTags, ANinjaCharacter* InstigatorCharacter, AActor* DamageCauser);
+
+	UFUNCTION()
+	virtual void PossessedBy(AController* NewController) override;
 
 	UFUNCTION()
     virtual void BeginOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* OtherActor, class UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
@@ -112,5 +115,9 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+	// Generic function to setup skeletal mesh colliders
 	virtual void SetupBodyCollidersName();
 };

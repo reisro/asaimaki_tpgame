@@ -37,6 +37,14 @@ void ANinjaCharacter::BeginPlay()
 	Super::BeginPlay();	
 }
 
+void ANinjaCharacter::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+
+	if (OnEnableInput.IsBound())
+		OnEnableInput.Broadcast(DeltaTime);
+}
+
 void ANinjaCharacter::SetupBodyCollidersName()
 {
 	// Set collision sockets
@@ -60,12 +68,6 @@ void ANinjaCharacter::SetupBodyCollidersName()
 	//RightFootCollider->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	//RightFootCollider->SetGenerateOverlapEvents(true);
 	//RightFootCollider->SetCollisionProfileName(TEXT("BlockAll"));
-}
-
-// Called every frame
-void ANinjaCharacter::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
 }
 
 int32 ANinjaCharacter::GetHealth() const
