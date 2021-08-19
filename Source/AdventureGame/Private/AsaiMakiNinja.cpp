@@ -124,8 +124,6 @@ void AAsaiMakiNinja::BeginPlay()
 
     UE_LOG(LogTemp, Warning, TEXT("%s"), *this->GetMesh()->GetAnimInstance()->GetName());
     UE_LOG(LogTemp, Warning, TEXT("Hello"));
-
-    OnEnableInput.AddDynamic(this, &AAsaiMakiNinja::LogInParentTick);
 }
 
 // Called every frame

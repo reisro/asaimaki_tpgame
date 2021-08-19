@@ -16,8 +16,6 @@
 
 using namespace std;
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FEnableInput, float, DeltaTime);
-
 UCLASS(config=Game)
 class ADVENTUREGAME_API ANinjaCharacter : public ACharacter, public IAbilitySystemInterface
 {
@@ -34,9 +32,6 @@ public:
 
 	UPROPERTY()
 	FGameplayTagContainer NinjaTag;
-
-	UPROPERTY()
-	FEnableInput OnEnableInput;
 
 	UFUNCTION(BlueprintCallable)
     int32 GetHealth() const;

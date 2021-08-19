@@ -41,8 +41,7 @@ void ANinjaCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	if (OnEnableInput.IsBound())
-		OnEnableInput.Broadcast(DeltaTime);
+	UE_LOG(LogTemp, Warning, TEXT("Tick function"));
 }
 
 void ANinjaCharacter::SetupBodyCollidersName()
