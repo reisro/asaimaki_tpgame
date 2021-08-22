@@ -60,7 +60,7 @@ public:
 	class APawn* Pawn;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Movement)
-	class AAdventureGameCharacter* Character;
+	class ANinjaCharacter* Character;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Combat)
 	class UAnimMontage* KickAttackAnimMontage;

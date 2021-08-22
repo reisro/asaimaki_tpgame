@@ -40,8 +40,6 @@ void ANinjaCharacter::BeginPlay()
 void ANinjaCharacter::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
-	UE_LOG(LogTemp, Warning, TEXT("Tick function"));
 }
 
 void ANinjaCharacter::SetupBodyCollidersName()

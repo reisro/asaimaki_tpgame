@@ -3,6 +3,7 @@
 
 #include "AsaiMakiAnimInstance.h"
 #include "AdventureGameCharacter.h"
+#include "AsaiMakiNinja.h"
 #include "GameFramework/Pawn.h"
 #include "GameFramework/CharacterMovementComponent.h"
 
@@ -20,7 +21,7 @@ void UAsaiMakiAnimInstance::NativeInitializeAnimation()
 		Pawn = TryGetPawnOwner();
 
 		if (Pawn)
-			Character = Cast<AAdventureGameCharacter>(Pawn);
+			Character = Cast<ANinjaCharacter>(Pawn);
 	}
 }
 

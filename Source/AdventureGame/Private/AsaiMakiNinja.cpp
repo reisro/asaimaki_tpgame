@@ -30,6 +30,12 @@ AAsaiMakiNinja::AAsaiMakiNinja():ANinjaCharacter()
     FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
     FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
     FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
+
+    // Get the Anim Instance attached to this character
+    AsaiMakiAnimInstance = Cast<UAsaiMakiAnimInstance>(this->GetMesh()->GetAnimInstance());
+
+    UE_LOG(LogTemp, Warning, TEXT("%s"), *this->GetMesh()->GetAnimInstance()->GetName());
+    UE_LOG(LogTemp, Warning, TEXT("Hello"));
 }
 
 void AAsaiMakiNinja::BeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,
@@ -78,8 +84,7 @@ void AAsaiMakiNinja::MoveForward(float Value)
     		// get forward vector
     		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
         
-            if (EnablePlayerInput)
-    		    AddMovementInput(Direction, Value);
+            AddMovementInput(Direction, Value);
     	}
 }
 
@@ -95,8 +100,7 @@ void AAsaiMakiNinja::MoveRight(float Value)
         const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
         // add movement in that direction
 
-        if (EnablePlayerInput)
-            AddMovementInput(Direction, Value);
+       AddMovementInput(Direction, Value);
     }
 }
 
@@ -119,11 +123,7 @@ bool AAsaiMakiNinja::CheckIfAnyMontageIsBeingPlayed()
 
 void AAsaiMakiNinja::BeginPlay()
 {
-    // Get the Anim Instance attached to this character
-    AsaiMakiAnimInstance = Cast<UAsaiMakiAnimInstance>(this->GetMesh()->GetAnimInstance());
-
-    UE_LOG(LogTemp, Warning, TEXT("%s"), *this->GetMesh()->GetAnimInstance()->GetName());
-    UE_LOG(LogTemp, Warning, TEXT("Hello"));
+    
 }
 
 // Called every frame
