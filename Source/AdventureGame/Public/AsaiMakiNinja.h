@@ -69,13 +69,4 @@ class ADVENTUREGAME_API AAsaiMakiNinja : public ANinjaCharacter
 	* @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
 	*/
 	void LookUpAtRate(float Rate);
-
-	UFUNCTION(BlueprintCallable)
-	bool CheckIfAnyMontageIsBeingPlayed();
-
-	public:
-
-	virtual void BeginPlay() override;
-
-	void LogInParentTick(float DeltaTime);
 };

@@ -15,7 +15,7 @@ AAsaiMakiNinja::AAsaiMakiNinja():ANinjaCharacter()
     bUseControllerRotationRoll = false;
 
     // Configure character movement
-    GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
+    GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...  
     GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f); // ...at this rotation rate
     GetCharacterMovement()->JumpZVelocity = 600.f;
     GetCharacterMovement()->AirControl = 0.2f;
@@ -23,19 +23,13 @@ AAsaiMakiNinja::AAsaiMakiNinja():ANinjaCharacter()
     // Create a camera boom (pulls in towards the player if there is a collision)
     CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
     CameraBoom->SetupAttachment(RootComponent);
-    CameraBoom->TargetArmLength = 300.0f; // The camera follows at this distance behind the character	
+    CameraBoom->TargetArmLength = 300.0f; // The camera follows at this distance behind the character  
     CameraBoom->bUsePawnControlRotation = true; // Rotate the arm based on the controller
 
     // Create a follow camera
     FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
     FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
     FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
-
-    // Get the Anim Instance attached to this character
-    AsaiMakiAnimInstance = Cast<UAsaiMakiAnimInstance>(this->GetMesh()->GetAnimInstance());
-
-    UE_LOG(LogTemp, Warning, TEXT("%s"), *this->GetMesh()->GetAnimInstance()->GetName());
-    UE_LOG(LogTemp, Warning, TEXT("Hello"));
 }
 
 void AAsaiMakiNinja::BeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* OtherActor,
@@ -68,24 +62,24 @@ void AAsaiMakiNinja::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 void AAsaiMakiNinja::SetupBodyCollidersName()
 {
     LeftHandBoneName = FName(TEXT("LeftHand"));
-	RightHandBoneName = FName(TEXT("RightHand"));
-	LeftFootBoneName = FName(TEXT("LeftFoot"));
-	RightFootBoneName = FName(TEXT("RightFoot"));
+   RightHandBoneName = FName(TEXT("RightHand"));
+   LeftFootBoneName = FName(TEXT("LeftFoot"));
+   RightFootBoneName = FName(TEXT("RightFoot"));
 }
 
 void AAsaiMakiNinja::MoveForward(float Value)
 {
     if ((Controller != NULL) && (Value != 0.0f))
-    	{
-    		// find out which way is forward
-    		const FRotator Rotation = Controller->GetControlRotation();
-    		const FRotator YawRotation(0, Rotation.Yaw, 0);
+       {
+          // find out which way is forward
+          const FRotator Rotation = Controller->GetControlRotation();
+          const FRotator YawRotation(0, Rotation.Yaw, 0);
     
-    		// get forward vector
-    		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
-        
-            AddMovementInput(Direction, Value);
-    	}
+          // get forward vector
+          const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
+
+          AddMovementInput(Direction, Value);
+       }
 }
 
 void AAsaiMakiNinja::MoveRight(float Value)
@@ -95,12 +89,12 @@ void AAsaiMakiNinja::MoveRight(float Value)
         // find out which way is right
         const FRotator Rotation = Controller->GetControlRotation();
         const FRotator YawRotation(0, Rotation.Yaw, 0);
-	
+   
         // get right vector 
         const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
+        
         // add movement in that direction
-
-       AddMovementInput(Direction, Value);
+        AddMovementInput(Direction, Value);
     }
 }
 
@@ -114,40 +108,4 @@ void AAsaiMakiNinja::LookUpAtRate(float Rate)
 {
     // calculate delta for this frame from the rate information
     AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
-}
-
-bool AAsaiMakiNinja::CheckIfAnyMontageIsBeingPlayed()
-{
-    return EnablePlayerInput;
-}
-
-void AAsaiMakiNinja::BeginPlay()
-{
-    
-}
-
-// Called every frame
-void AAsaiMakiNinja::LogInParentTick(float DeltaTime)
-{
-    UE_LOG(LogTemp, Warning, TEXT("aaaaaaaaaaaaaaa."));
-    
-    if (AsaiMakiAnimInstance != nullptr)
-    {
-        UE_LOG(LogTemp, Warning, TEXT("Not null."));
-        
-        if (!AsaiMakiAnimInstance->IsAnyMontagePlaying())
-        {
-            UE_LOG(LogTemp, Warning, TEXT("Input enabled."));
-
-            EnablePlayerInput=true;
-        }
-        else
-        {
-            UE_LOG(LogTemp, Warning, TEXT("Input disabled."));
-
-            EnablePlayerInput=false;
-        }
-    }
-    else
-        UE_LOG(LogTemp, Warning, TEXT("Anim null."));
 }

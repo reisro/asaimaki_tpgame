@@ -2,6 +2,10 @@
 
 #pragma once
 
+#include <Actor.h>
+#include <string>
+
+
 #include "AsaiMakiCommonTypes.h"
 #include "AdventureGame/AsaiMaki_TPGame.h"
 #include "AdventureGame/AsaiMakiAnimInstance.h"
@@ -12,6 +16,7 @@
 #include "NinjaGameplayAbility.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/CheatManager.h"
+#include "string"
 #include "NinjaCharacter.generated.h"
 
 using namespace std;
@@ -86,15 +91,19 @@ protected:
 	UPROPERTY(VisibleAnywhere)
 	FName RightFootBoneName;
 	
+	/** Energy for this character that is verified whether this character is dead or not */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Ninja")
 	int32 Health;
 
+	/** The level that this character is currently in */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Abilities")
 	int32 NinjaLevel;
 
+	/** Whether the abilities were initialized or not */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Abilities")
 	int32 bAbilitesInitialized;
 
+	/** Handles acquirement and activation of abilities for this character */
 	UPROPERTY()
 	UNinjaAbilitySystemComponent* NinjaAbilitySystem;
 
