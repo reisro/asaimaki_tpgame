@@ -16,8 +16,6 @@ bool ACameraTimeline::ReachedEndPoint(FVector start, FVector end, FRotator start
 {
 	UE_LOG(LogTemp, Warning, TEXT("Playback Position: %f"), curveTimeline.GetPlaybackPosition());
 	UE_LOG(LogTemp, Warning, TEXT("Playback Position: %f"), curveTimeline.GetTimelineLength());
-
-	//Target->SetActorRotation(start.Rotation());
 	
 	if (curveTimeline.GetPlaybackPosition() < curveTimeline.GetTimelineLength())
 	{
@@ -40,9 +38,7 @@ void ACameraTimeline::BeginPlay()
 	if(curve)
 	{
 		FOnTimelineVector TimelineReached;
-		//TimelineReached.BindUFunction(this, FName("ReachedEndPoint"));
 		curveTimeline.AddInterpVector(curve, TimelineReached);
-		//curve->GetVectorValue(5.0f).Set(FVector::OneVector.X*10.0f,FVector::OneVector.X*10.0f,FVector::OneVector.X*10.0f);
 	}
 }
 

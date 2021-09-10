@@ -109,3 +109,14 @@ void AAsaiMakiNinja::LookUpAtRate(float Rate)
     // calculate delta for this frame from the rate information
     AddControllerPitchInput(Rate * BaseLookUpRate * GetWorld()->GetDeltaSeconds());
 }
+
+FVector AAsaiMakiNinja::ApplyAttackForce(AActor& hitActor)
+{
+    FVector origin = hitActor.GetActorLocation();
+    FVector forward = origin.ForwardVector;
+
+    FVector vectorForce = origin+forward;
+    const FVector resultForce = vectorForce * (FVector::ForwardVector * 100.0f);
+
+    return resultForce;
+}
