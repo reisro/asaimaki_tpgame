@@ -65,22 +65,6 @@ void AAsaiMakiCamera::CameraFollowPoints(float deltaTime, float blendTime)
 		
 		OurPlayer->SetViewTarget(CameraMain);
 	}
-	
-	/*distanceCameraFromTarget = (FollowThroughEnd[followThroughId]-Dummy->GetActorLocation()).Size();
-
-	FVector moveCamera = FollowThroughEnd[followThroughId]-FollowThroughStart[followThroughId];
-	
-	if ( distanceCameraFromTarget > 0.01f)
-	{
-		//FTTranslation.SetTranslation(FVector(Dummy->GetActorLocation() + moveCamera.GetSafeNormal() * 60.0f * deltaTime));
-		FTTranslation.SetTranslation(FMath::Lerp(Dummy->GetActorLocation(), Dummy->GetActorLocation() + moveCamera.GetSafeNormal(), 1.0f));
-		FTTranslation.SetScale3D(Dummy->GetActorScale3D());
-
-		Dummy->SetActorTransform(FTTranslation);
-		Dummy->SetActorRotation((end-Dummy->GetActorLocation()).Rotation());
-	
-		
-	}*/
 }
 
 void AAsaiMakiCamera::FeedCameraTransform(TMap<FVector, FRotator> cameraTransform)
@@ -142,10 +126,8 @@ void AAsaiMakiCamera::CameraFollowTransform(TMap<FVector, FRotator> cameraTransf
 		if(advanceKeyframe)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Advanced keyframe"));
-			//if (followThroughId < keyframes)
-				//followThroughId++;
-			//else
-				followThrough = true;
+			
+			followThrough = true;
 		}
 
 		UE_LOG(LogTemp, Warning, TEXT("Follow through id: %d"), followThroughId);

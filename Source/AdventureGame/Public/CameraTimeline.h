@@ -33,6 +33,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	bool ReachedEndPoint(FVector start, FVector end, FRotator startRotation, FRotator endRotation);
 
+	UFUNCTION(BlueprintImplementableEvent)
+	void FinishedTimeline();
+
 protected:
 	
 	UPROPERTY(EditAnywhere, Category="Timeline")

@@ -39,10 +39,10 @@ public:
 	FGameplayTagContainer NinjaTag;
 
 	UFUNCTION(BlueprintCallable)
-    int32 GetHealth() const;
+    float GetHealth() const;
 
 	UFUNCTION(BlueprintCallable)
-    void SetHealth(int32 _health);
+    void SetHealth(float _health);
 
 	UFUNCTION(BlueprintCallable, Category="Abilities")
     void ActivateStartupNinjaAbility();
@@ -93,7 +93,7 @@ protected:
 	
 	/** Energy for this character that is verified whether this character is dead or not */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Ninja")
-	int32 Health;
+	float Health;
 
 	/** The level that this character is currently in */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Abilities")

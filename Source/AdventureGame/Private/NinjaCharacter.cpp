@@ -5,7 +5,7 @@
 
 // Sets default values
 ANinjaCharacter::ANinjaCharacter():
-Health(100), NinjaLevel(1)
+Health(1.0f), NinjaLevel(1)
 {
 	UE_LOG(LogTemp, Warning, TEXT("Ninja Character Constructor"));
 
@@ -67,14 +67,14 @@ void ANinjaCharacter::SetupBodyCollidersName()
 	//RightFootCollider->SetCollisionProfileName(TEXT("BlockAll"));
 }
 
-int32 ANinjaCharacter::GetHealth() const
+float ANinjaCharacter::GetHealth() const
 {
 	//UE_LOG(LogTemp, Warning, TEXT("Character Health %d"), this->Health);
 
 	return this->Health;
 }
 
-void ANinjaCharacter::SetHealth(int32 _health)
+void ANinjaCharacter::SetHealth(float _health)
 {
 	Health = _health;
 }
