@@ -88,6 +88,9 @@ public:
 	AAsaiMakiCamera();
 
 	UFUNCTION(BlueprintCallable)
+	void CameraResetToOriginal(float blendTime);
+
+	UFUNCTION(BlueprintCallable)
 	void CameraCloseUp(float blendTime);
 
 	UFUNCTION(BlueprintCallable)

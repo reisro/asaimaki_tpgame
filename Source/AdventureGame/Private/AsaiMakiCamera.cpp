@@ -12,6 +12,17 @@ AAsaiMakiCamera::AAsaiMakiCamera()
 	cameraSystemDataIO = new CameraSystemDataIO();
 }
 
+void AAsaiMakiCamera::CameraResetToOriginal(float blendTime)
+{
+	if ((OurPlayer->GetViewTarget() != CameraMain) && (CameraMain != nullptr))
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Set Target View to Main Camera"));
+		
+		// Blend smoothly to main camera
+		OurPlayer->SetViewTarget(CameraMain);
+	}
+}
+
 void AAsaiMakiCamera::CameraCloseUp(float blendTime)
 {
 	if ((OurPlayer->GetViewTarget() != CameraCombat) && (CameraCombat != nullptr))
@@ -38,7 +49,7 @@ void AAsaiMakiCamera::CameraThreeSixtyRound(float elapsedTime, float blendTime)
 	PositionAroundTarget = FVector(pitchValue*scaleDistance+Target->GetActorLocation().X,
 		rollValue*scaleDistance+Target->GetActorLocation().Y, CameraCombat->GetActorLocation().Z);
 
-	float YawValue = (Target->GetActorLocation()-CameraCombat->GetActorLocation()).Rotation().Yaw;
+	float YawValue = (Target->GetActorLocation()-(CameraCombat->GetActorLocation().ForwardVector+PositionAroundTarget)).Rotation().Yaw;
 
 	CameraRotation = FRotator(.0f, YawValue, .0f);
 	
